@@ -104,30 +104,6 @@
     <Compile Include="Visao\FormCadastrarPizza.Designer.cs">
       <DependentUpon>FormCadastrarPizza.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\FormEstoque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visao\FormEstoque.Designer.cs">
-      <DependentUpon>FormEstoque.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueBebidas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueBebidas.Designer.cs">
-      <DependentUpon>FormEstoqueBebidas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueIngredientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueIngredientes.Designer.cs">
-      <DependentUpon>FormEstoqueIngredientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueLimpeza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visao\FormEstoqueLimpeza.Designer.cs">
-      <DependentUpon>FormEstoqueLimpeza.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visao\FormFazerPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\FormBemVindo.resx">
       <DependentUpon>FormBemVindo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\FormCadastrarCliente.resx">
+      <DependentUpon>FormCadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visao\FormCadastrarFuncionario.resx">
+      <DependentUpon>FormCadastrarFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visao\FormFecharCaixa.resx">
       <DependentUpon>FormFecharCaixa.cs</DependentUpon>

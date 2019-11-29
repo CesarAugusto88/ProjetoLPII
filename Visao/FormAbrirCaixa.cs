@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_Pizzaria_das_Couves.Controle;
+using Projeto_Pizzaria_das_Couves.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +22,20 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         private void BtnAbrir_Click(object sender, EventArgs e)
         {
             
-
             this.Close();
+            btnAbrir.Visible = false;
+            
+
+        }
+
+        private void FormAbrirCaixa_Load(object sender, EventArgs e)
+        {
+            //btnFecharCaixa.Visible = true;
+            //btnCadastrarCliente.Visible = true;
+            //btnCadastrarFuncionario.Visible = true;
+
+            
+
         }
     }
 }

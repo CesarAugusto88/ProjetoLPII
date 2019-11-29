@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Pizzaria_das_Couves.Modelo
 {
-    //Classe que define informações sobre um cliente.
+    // Classe que define informações sobre um cliente.
     // retirado classe Endereco que atributo de cliente recebia e incluso
     class Cliente
     {
@@ -39,5 +39,9 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             //this.End = End;
         }
 
+        // Sibre carga de construtor
+        public Cliente()
+        {
+        }
     }
 }

@@ -20,8 +20,14 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
+        {            
+            btnAbrirCaixa.Visible = false;
+            btnFecharCaixa.Visible = false;
+            btnCadastrarPizza.Visible = false;
+            btnCadastrarFuncionario.Visible = false;
+            btnCadastrarCliente.Visible = false;
+            btnCadastrarPizza.Visible = false;
+            btnFazerPedido.Visible = false;
         }
 
         private void BtnEntrar_Click(object sender, EventArgs e)
@@ -45,7 +51,22 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                     MessageBox.Show("Logado com sucesso!", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormBemVindo WC = new FormBemVindo();
                     WC.ShowDialog();
+                   // somente botão de abrir caixa e sair...
+                    lblLogin.Visible = false;
+                    lblSenha.Visible = false;
+                    btnEntrar.Visible = false;
+                    btnSair.Visible = false;
+                    txbLogin.Visible = false;
+                    txbSenha.Visible = false;
                     btnAbrirCaixa.Visible = true;
+                    btnSair.Visible = true;
+                    btnCadastrarCliente.Visible = true;
+                    btnCadastrarFuncionario.Visible = true;
+                    btnCadastrarPizza.Visible = true;
+                    btnFazerPedido.Visible = true;
+                    btnFecharCaixa.Visible = true;
+
+
                 }
                 else
                 {
@@ -72,8 +93,35 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void BtnCadastrarCliente_Click(object sender, EventArgs e)
         {
-            FormCadastrarCliente Cliente = new FormCadastrarCliente();
-            Cliente.ShowDialog();
+
+            Cliente cliente = new Cliente();
+            ControleCliente cc = new ControleCliente();
+            string mensagem = cc.AdicionarCliente(cliente); //Chama o método que realiza a inserção no banco.
+
+            MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //MessageBox.Show(mensagem);
+            LimpaTextoCliente();
+
+
+            //FormBemVindo BvC = new FormBemVindo();
+            //BvC.ShowDialog();
+            //PreencherListView();
+        }
+
+        // Não está reconhecendo os txb... nem no objeto.
+        public void LimpaTextoCliente()
+        {
+           // txbNomeC.Text = "";
+           // txbCpfC.Text = "";
+           // txbRgC.Text = "";
+           // txbGeneroC.Text = "";
+           // txbCelularC.Text = "";
+           // txbEmailC.Text = "";
+           // txbLograC.Text = "";
+           // txbNumeroC.Text = "";
+           // txbCompC.Text = "";
+           // txbBairroC.Text = "";
         }
 
         private void BtnAbrirCaixa_Click(object sender, EventArgs e)
@@ -86,6 +134,11 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         {
             FormFecharCaixa FC = new FormFecharCaixa();
             FC.ShowDialog();
+        }
+
+        private void BtnEstoque_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

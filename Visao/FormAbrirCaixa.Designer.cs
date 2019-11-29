@@ -95,6 +95,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAbrirCaixa";
             this.Text = "FormAbrirCaixa";
+            this.Load += new System.EventHandler(this.FormAbrirCaixa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

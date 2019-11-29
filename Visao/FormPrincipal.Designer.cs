@@ -38,7 +38,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnFecharCaixa = new System.Windows.Forms.Button();
-            this.btnEstoque = new System.Windows.Forms.Button();
             this.txbLogin = new System.Windows.Forms.TextBox();
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
@@ -111,7 +110,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(443, 328);
+            this.btnSair.Location = new System.Drawing.Point(428, 274);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(150, 41);
             this.btnSair.TabIndex = 6;
@@ -122,7 +121,7 @@
             // btnEntrar
             // 
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(443, 281);
+            this.btnEntrar.Location = new System.Drawing.Point(428, 227);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(150, 41);
             this.btnEntrar.TabIndex = 7;
@@ -133,7 +132,7 @@
             // btnFecharCaixa
             // 
             this.btnFecharCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFecharCaixa.Location = new System.Drawing.Point(443, 375);
+            this.btnFecharCaixa.Location = new System.Drawing.Point(428, 321);
             this.btnFecharCaixa.Name = "btnFecharCaixa";
             this.btnFecharCaixa.Size = new System.Drawing.Size(150, 41);
             this.btnFecharCaixa.TabIndex = 8;
@@ -141,20 +140,10 @@
             this.btnFecharCaixa.UseVisualStyleBackColor = true;
             this.btnFecharCaixa.Click += new System.EventHandler(this.BtnFecharCaixa_Click);
             // 
-            // btnEstoque
-            // 
-            this.btnEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstoque.Location = new System.Drawing.Point(108, 368);
-            this.btnEstoque.Name = "btnEstoque";
-            this.btnEstoque.Size = new System.Drawing.Size(230, 41);
-            this.btnEstoque.TabIndex = 9;
-            this.btnEstoque.Text = "Estoque";
-            this.btnEstoque.UseVisualStyleBackColor = true;
-            // 
             // txbLogin
             // 
             this.txbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbLogin.Location = new System.Drawing.Point(525, 188);
+            this.txbLogin.Location = new System.Drawing.Point(521, 135);
             this.txbLogin.Name = "txbLogin";
             this.txbLogin.Size = new System.Drawing.Size(199, 29);
             this.txbLogin.TabIndex = 10;
@@ -162,8 +151,9 @@
             // txbSenha
             // 
             this.txbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSenha.Location = new System.Drawing.Point(525, 233);
+            this.txbSenha.Location = new System.Drawing.Point(521, 180);
             this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(199, 29);
             this.txbSenha.TabIndex = 11;
             // 
@@ -171,7 +161,7 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(427, 188);
+            this.lblLogin.Location = new System.Drawing.Point(423, 134);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(73, 29);
             this.lblLogin.TabIndex = 12;
@@ -181,7 +171,7 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(427, 233);
+            this.lblSenha.Location = new System.Drawing.Point(423, 179);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(82, 29);
             this.lblSenha.TabIndex = 13;
@@ -198,7 +188,6 @@
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.txbSenha);
             this.Controls.Add(this.txbLogin);
-            this.Controls.Add(this.btnEstoque);
             this.Controls.Add(this.btnFecharCaixa);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.btnSair);
@@ -228,7 +217,6 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnFecharCaixa;
-        private System.Windows.Forms.Button btnEstoque;
         private System.Windows.Forms.TextBox txbLogin;
         private System.Windows.Forms.TextBox txbSenha;
         private System.Windows.Forms.Label lblLogin;

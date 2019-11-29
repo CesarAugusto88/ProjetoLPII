@@ -16,5 +16,15 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         {
             InitializeComponent();
         }
+
+        private void LblGeneroF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCadastrarC_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

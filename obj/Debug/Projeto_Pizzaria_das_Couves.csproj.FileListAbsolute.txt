@@ -16,3 +16,5 @@ C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzar
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormBemVindo.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormAbrirCaixa.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormFecharCaixa.resources
+C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarCliente.resources
+C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarFuncionario.resources
