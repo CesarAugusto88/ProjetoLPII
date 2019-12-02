@@ -21,11 +21,36 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void BtnAbrir_Click(object sender, EventArgs e)
         {
-            
-            this.Close();
-            btnAbrir.Visible = false;
-            
+            if (txbIdLoginAbrir.Text == "" || txbValorInicial.Text == "")
+            {
 
+                MessageBox.Show("Os campos são Obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //MessageBox.Show("O Campo de Nome é Obrigatorio!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Txt_Nome.Focus();
+            }
+            else
+            {
+
+                AbrirCaixa abrir = new AbrirCaixa(int.Parse(txbIdLoginAbrir.Text), double.Parse(txbValorInicial.Text));
+                ControleAbrirCaixa ac = new ControleAbrirCaixa();
+                string mensagem = ac.AdicionarAbrirCaixa(abrir);
+
+                MessageBox.Show(mensagem);
+                LimparCamposAbrirCaixa();
+                this.Close();
+            }
+
+            //FormBemVindo BvC = new FormBemVindo();
+            //BvC.ShowDialog();
+
+            // PreencherListView();
+
+        }
+        public void LimparCamposAbrirCaixa()
+        {
+            txbIdLoginAbrir.Text = String.Empty;
+            txbValorInicial.Text = String.Empty;
         }
 
         private void FormAbrirCaixa_Load(object sender, EventArgs e)

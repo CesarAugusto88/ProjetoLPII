@@ -23,7 +23,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         //public Endereco End { get; set; }
 
 
-        public Funcionario(string nome, string cpf, string rg, string genero, string celular, string email, string logradouro, int numero, string complemento, string bairro)
+        public Funcionario(string nome, string cpf, string rg, string celular, string genero, string email, string logradouro, int numero, string complemento, string bairro)
         {
             this.Nome = nome;
             this.CPF = cpf;

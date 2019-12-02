@@ -8,29 +8,28 @@ using System.Threading.Tasks;
 
 namespace Projeto_Pizzaria_das_Couves.Controle
 {
-    //Esta classe é responsável por verificações e validações de dados referentes ao Cliente.
-    class ControleCliente
+    class ControleAbrirCaixa
     {
         //Método onde podem ser realizadas validações acerca das informações informadas para o Cliente a ser inserido no banco.
-        public string AdicionarCliente(Cliente cliente)
+        public string AdicionarAbrirCaixa(AbrirCaixa abrir)
         {
-            ClienteDAO cli = new ClienteDAO();
-            string mensagem = cli.Adicionar(cliente);
+            AbrirCaixaDAO aac = new AbrirCaixaDAO();
+            string mensagem = aac.Adicionar(abrir); // Adicionar -> está em DAO
             return mensagem;
+
         }
-        
 
         //Método intermediário utilizado para retornar informações dos clientes que estão salvos no banco.
-        public SqlDataReader RetornarClientes()
+        public SqlDataReader RetornarAbrirCaixas(string Nome)
         {
-            ClienteDAO cli = new ClienteDAO();
-            return cli.RetornarClientes();
+            AbrirCaixaDAO aa = new AbrirCaixaDAO();
+            return aa.RetornarAbrirCaixas(Nome);
         }
 
-        public SqlDataReader RetornarCliente(int indice)
+        public SqlDataReader RetornarAbrirCaixa(int indice)
         {
-            ClienteDAO cli = new ClienteDAO();
-            return cli.RetornarCliente(indice);
+            AbrirCaixaDAO ab = new AbrirCaixaDAO();
+            return ab.RetornarAbrirCaixa(indice);
         }
     }
 }

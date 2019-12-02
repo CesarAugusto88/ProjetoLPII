@@ -20,10 +20,10 @@ namespace Projeto_Pizzaria_das_Couves.Controle
         }
 
         //Método intermediário utilizado para retornar informações dos clientes que estão salvos no banco.
-        public SqlDataReader RetornarPizzas()
+        public SqlDataReader RetornarPizzas(string Nome)
         {
             PizzaDAO pizz = new PizzaDAO();
-            return pizz.RetornarPizzas();
+            return pizz.RetornarPizzas(Nome);
         }
 
         public SqlDataReader RetornarPizza(int indice)
@@ -31,5 +31,7 @@ namespace Projeto_Pizzaria_das_Couves.Controle
             PizzaDAO pizz = new PizzaDAO();
             return pizz.RetornarPizza(indice);
         }
+
+        
     }
 }

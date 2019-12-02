@@ -55,6 +55,7 @@
             this.txbSenhaF = new System.Windows.Forms.TextBox();
             this.txbConfirmaSenhaF = new System.Windows.Forms.TextBox();
             this.btnCadastrarF = new System.Windows.Forms.Button();
+            this.listVfuncionarios = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // lblNomeF
@@ -171,7 +172,7 @@
             // 
             this.lblSenhaF.AutoSize = true;
             this.lblSenhaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenhaF.Location = new System.Drawing.Point(488, 284);
+            this.lblSenhaF.Location = new System.Drawing.Point(489, 247);
             this.lblSenhaF.Name = "lblSenhaF";
             this.lblSenhaF.Size = new System.Drawing.Size(82, 29);
             this.lblSenhaF.TabIndex = 10;
@@ -182,7 +183,7 @@
             // 
             this.lblLoginF.AutoSize = true;
             this.lblLoginF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginF.Location = new System.Drawing.Point(488, 245);
+            this.lblLoginF.Location = new System.Drawing.Point(489, 208);
             this.lblLoginF.Name = "lblLoginF";
             this.lblLoginF.Size = new System.Drawing.Size(73, 29);
             this.lblLoginF.TabIndex = 11;
@@ -193,7 +194,7 @@
             // 
             this.lblConfirmaF.AutoSize = true;
             this.lblConfirmaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmaF.Location = new System.Drawing.Point(488, 323);
+            this.lblConfirmaF.Location = new System.Drawing.Point(489, 286);
             this.lblConfirmaF.Name = "lblConfirmaF";
             this.lblConfirmaF.Size = new System.Drawing.Size(149, 29);
             this.lblConfirmaF.TabIndex = 12;
@@ -293,7 +294,7 @@
             // txbLoginF
             // 
             this.txbLoginF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbLoginF.Location = new System.Drawing.Point(633, 245);
+            this.txbLoginF.Location = new System.Drawing.Point(634, 208);
             this.txbLoginF.Name = "txbLoginF";
             this.txbLoginF.Size = new System.Drawing.Size(305, 29);
             this.txbLoginF.TabIndex = 23;
@@ -302,8 +303,9 @@
             // txbSenhaF
             // 
             this.txbSenhaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSenhaF.Location = new System.Drawing.Point(633, 284);
+            this.txbSenhaF.Location = new System.Drawing.Point(634, 247);
             this.txbSenhaF.Name = "txbSenhaF";
+            this.txbSenhaF.PasswordChar = '*';
             this.txbSenhaF.Size = new System.Drawing.Size(305, 29);
             this.txbSenhaF.TabIndex = 24;
             this.txbSenhaF.TextChanged += new System.EventHandler(this.TextBox12_TextChanged);
@@ -311,8 +313,9 @@
             // txbConfirmaSenhaF
             // 
             this.txbConfirmaSenhaF.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbConfirmaSenhaF.Location = new System.Drawing.Point(633, 324);
+            this.txbConfirmaSenhaF.Location = new System.Drawing.Point(634, 287);
             this.txbConfirmaSenhaF.Name = "txbConfirmaSenhaF";
+            this.txbConfirmaSenhaF.PasswordChar = '*';
             this.txbConfirmaSenhaF.Size = new System.Drawing.Size(305, 29);
             this.txbConfirmaSenhaF.TabIndex = 25;
             this.txbConfirmaSenhaF.TextChanged += new System.EventHandler(this.TextBox13_TextChanged);
@@ -320,7 +323,7 @@
             // btnCadastrarF
             // 
             this.btnCadastrarF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarF.Location = new System.Drawing.Point(656, 370);
+            this.btnCadastrarF.Location = new System.Drawing.Point(657, 333);
             this.btnCadastrarF.Name = "btnCadastrarF";
             this.btnCadastrarF.Size = new System.Drawing.Size(282, 38);
             this.btnCadastrarF.TabIndex = 26;
@@ -328,11 +331,22 @@
             this.btnCadastrarF.UseVisualStyleBackColor = true;
             this.btnCadastrarF.Click += new System.EventHandler(this.BtnCadastrarF_Click);
             // 
+            // listVfuncionarios
+            // 
+            this.listVfuncionarios.HideSelection = false;
+            this.listVfuncionarios.Location = new System.Drawing.Point(99, 397);
+            this.listVfuncionarios.Name = "listVfuncionarios";
+            this.listVfuncionarios.Size = new System.Drawing.Size(748, 159);
+            this.listVfuncionarios.TabIndex = 27;
+            this.listVfuncionarios.UseCompatibleStateImageBehavior = false;
+            this.listVfuncionarios.View = System.Windows.Forms.View.List;
+            // 
             // FormCadastrarFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 420);
+            this.ClientSize = new System.Drawing.Size(972, 609);
+            this.Controls.Add(this.listVfuncionarios);
             this.Controls.Add(this.btnCadastrarF);
             this.Controls.Add(this.txbConfirmaSenhaF);
             this.Controls.Add(this.txbSenhaF);
@@ -361,6 +375,7 @@
             this.Controls.Add(this.lblCpfF);
             this.Controls.Add(this.lblNomeF);
             this.Name = "FormCadastrarFuncionario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarFuncionario";
             this.Load += new System.EventHandler(this.FormCadastrarFuncionario_Load);
             this.ResumeLayout(false);
@@ -397,5 +412,6 @@
         private System.Windows.Forms.TextBox txbSenhaF;
         private System.Windows.Forms.TextBox txbConfirmaSenhaF;
         private System.Windows.Forms.Button btnCadastrarF;
+        private System.Windows.Forms.ListView listVfuncionarios;
     }
 }

@@ -1,12 +1,7 @@
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.csprojAssemblyReference.cache
-C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Modelo\IngredientesDAO.g.cs
-C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves_MarkupCompile.cache
-C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves_MarkupCompile.lref
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\bin\Debug\Projeto_Pizzaria_das_Couves.exe.config
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\bin\Debug\Projeto_Pizzaria_das_Couves.exe
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\bin\Debug\Projeto_Pizzaria_das_Couves.pdb
-C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Modelo\IngredientesDAO.baml
-C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.g.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Properties.Resources.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormPrincipal.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.csproj.GenerateResource.cache
@@ -18,3 +13,5 @@ C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzar
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormFecharCaixa.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarCliente.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarFuncionario.resources
+C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarPizza.resources
+C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormFazerPedido.resources

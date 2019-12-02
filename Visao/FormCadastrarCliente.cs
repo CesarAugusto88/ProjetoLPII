@@ -17,13 +17,45 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             InitializeComponent();
         }
 
-        private void LblGeneroF_Click(object sender, EventArgs e)
+        private void LblLograC_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnCadastrarC_Click(object sender, EventArgs e)
+        private void TextBox11_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void FormCadastrarCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblNumC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCadastrarCliente_Click(object sender, EventArgs e)
+        {
+            if (txbNomeC.Text == "" || txbCpfC.Text == "" || txbRgC.Text == "" || txbCelC.Text == "" || txbEmailC.Text == "" || txbGeneroC.Text == "" || txbLograC.Text == "" || txbNumC.Text == "" || txbCompC.Text == "" || txbBairroC.Text == "")
+            {
+
+                MessageBox.Show("Os campos são Obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //MessageBox.Show("O Campo de Nome é Obrigatorio!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Txt_Nome.Focus();
+            }
+            else
+            {
+
+            }
 
         }
     }

@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnFazerPedido = new System.Windows.Forms.Button();
             this.btnCadastrarPizza = new System.Windows.Forms.Button();
-            this.btnCadastrarCliente = new System.Windows.Forms.Button();
             this.btnCadastrarFuncionario = new System.Windows.Forms.Button();
             this.btnAbrirCaixa = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.lblSenha = new System.Windows.Forms.Label();
+            this.btnCadastrarCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +63,7 @@
             this.btnFazerPedido.TabIndex = 1;
             this.btnFazerPedido.Text = "Fazer Pedido";
             this.btnFazerPedido.UseVisualStyleBackColor = true;
+            this.btnFazerPedido.Click += new System.EventHandler(this.BtnFazerPedido_Click);
             // 
             // btnCadastrarPizza
             // 
@@ -73,17 +74,7 @@
             this.btnCadastrarPizza.TabIndex = 2;
             this.btnCadastrarPizza.Text = "Cadastrar Pizza";
             this.btnCadastrarPizza.UseVisualStyleBackColor = true;
-            // 
-            // btnCadastrarCliente
-            // 
-            this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(108, 230);
-            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
-            this.btnCadastrarCliente.Size = new System.Drawing.Size(230, 40);
-            this.btnCadastrarCliente.TabIndex = 3;
-            this.btnCadastrarCliente.Text = "Cadastrar Cliente";
-            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
-            this.btnCadastrarCliente.Click += new System.EventHandler(this.BtnCadastrarCliente_Click);
+            this.btnCadastrarPizza.Click += new System.EventHandler(this.BtnCadastrarPizza_Click);
             // 
             // btnCadastrarFuncionario
             // 
@@ -99,7 +90,7 @@
             // btnAbrirCaixa
             // 
             this.btnAbrirCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCaixa.Location = new System.Drawing.Point(108, 135);
+            this.btnAbrirCaixa.Location = new System.Drawing.Point(108, 138);
             this.btnAbrirCaixa.Name = "btnAbrirCaixa";
             this.btnAbrirCaixa.Size = new System.Drawing.Size(230, 40);
             this.btnAbrirCaixa.TabIndex = 5;
@@ -110,7 +101,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(428, 274);
+            this.btnSair.Location = new System.Drawing.Point(425, 331);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(150, 41);
             this.btnSair.TabIndex = 6;
@@ -121,7 +112,7 @@
             // btnEntrar
             // 
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(428, 227);
+            this.btnEntrar.Location = new System.Drawing.Point(425, 284);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(150, 41);
             this.btnEntrar.TabIndex = 7;
@@ -132,9 +123,9 @@
             // btnFecharCaixa
             // 
             this.btnFecharCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFecharCaixa.Location = new System.Drawing.Point(428, 321);
+            this.btnFecharCaixa.Location = new System.Drawing.Point(108, 368);
             this.btnFecharCaixa.Name = "btnFecharCaixa";
-            this.btnFecharCaixa.Size = new System.Drawing.Size(150, 41);
+            this.btnFecharCaixa.Size = new System.Drawing.Size(230, 41);
             this.btnFecharCaixa.TabIndex = 8;
             this.btnFecharCaixa.Text = "Fechar Caixa";
             this.btnFecharCaixa.UseVisualStyleBackColor = true;
@@ -143,7 +134,7 @@
             // txbLogin
             // 
             this.txbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbLogin.Location = new System.Drawing.Point(521, 135);
+            this.txbLogin.Location = new System.Drawing.Point(518, 185);
             this.txbLogin.Name = "txbLogin";
             this.txbLogin.Size = new System.Drawing.Size(199, 29);
             this.txbLogin.TabIndex = 10;
@@ -151,7 +142,7 @@
             // txbSenha
             // 
             this.txbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSenha.Location = new System.Drawing.Point(521, 180);
+            this.txbSenha.Location = new System.Drawing.Point(518, 230);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(199, 29);
@@ -161,7 +152,7 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(423, 134);
+            this.lblLogin.Location = new System.Drawing.Point(420, 184);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(73, 29);
             this.lblLogin.TabIndex = 12;
@@ -171,11 +162,22 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(423, 179);
+            this.lblSenha.Location = new System.Drawing.Point(420, 229);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(82, 29);
             this.lblSenha.TabIndex = 13;
             this.lblSenha.Text = "Senha";
+            // 
+            // btnCadastrarCliente
+            // 
+            this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(108, 230);
+            this.btnCadastrarCliente.Name = "btnCadastrarCliente";
+            this.btnCadastrarCliente.Size = new System.Drawing.Size(230, 40);
+            this.btnCadastrarCliente.TabIndex = 3;
+            this.btnCadastrarCliente.Text = "Cadastrar Cliente";
+            this.btnCadastrarCliente.UseVisualStyleBackColor = true;
+            this.btnCadastrarCliente.Click += new System.EventHandler(this.BtnCadastrarCliente_Click);
             // 
             // FormPrincipal
             // 
@@ -199,6 +201,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrincipal";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.ResumeLayout(false);
@@ -211,7 +214,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFazerPedido;
         private System.Windows.Forms.Button btnCadastrarPizza;
-        private System.Windows.Forms.Button btnCadastrarCliente;
         private System.Windows.Forms.Button btnCadastrarFuncionario;
         private System.Windows.Forms.Button btnAbrirCaixa;
         private System.Windows.Forms.Button btnSair;
@@ -221,5 +223,6 @@
         private System.Windows.Forms.TextBox txbSenha;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.Button btnCadastrarCliente;
     }
 }

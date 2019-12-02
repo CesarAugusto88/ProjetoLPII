@@ -89,7 +89,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return Mensagem;
         }
 
-        public SqlDataReader RetornarPizzas()
+        public SqlDataReader RetornarPizzas(string Nome)
         {
             //Comandos SQL para verificar se existe o usuário no banco.
             cmd.CommandText = "select * from Pizza";
@@ -120,6 +120,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             cmd.CommandText = "select * from Pizza where Id = @id";
             cmd.Parameters.AddWithValue("id", indice);
 
+
             try
             {
                 cmd.Connection = con.Conectar(); //Tenta estabelecer a conexão com o banco de dados. 
@@ -138,5 +139,28 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             con.Desconectar();
             return null;
         }
+        /* exemplo carrega dados
+        public SqlDataReader CarregaCliLis(string texto = " ")
+        {
+
+            SqlConnection conexao = new SqlConnection(caminho);
+
+            conexao.Open();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            if (texto == " ")
+                comando.CommandText = " select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES";
+            else
+            {
+                comando.CommandText = "select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES " +
+                                      "WHERE NOME_CLI LIKE  '%" + texto + "%'";
+            }
+
+
+            comando.CommandType = CommandType.Text;
+            SqlDataReader LINHA = comando.ExecuteReader();
+            return LINHA;
+
+        } */
     }
 }

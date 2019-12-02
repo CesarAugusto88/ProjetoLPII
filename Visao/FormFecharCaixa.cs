@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projeto_Pizzaria_das_Couves.Controle;
+using Projeto_Pizzaria_das_Couves.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,36 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void BtnFechar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (txbIdLoginFechar.Text == "" || txbValorFinal.Text == "")
+            {
+
+                MessageBox.Show("Os campos são Obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //MessageBox.Show("O Campo de Nome é Obrigatorio!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //Txt_Nome.Focus();
+            }
+            else
+            {
+
+                FecharCaixa fechar= new FecharCaixa(int.Parse(txbIdLoginFechar.Text), double.Parse(txbValorFinal.Text));
+                ControleFecharCaixa fc = new ControleFecharCaixa();
+                string mensagem = fc.AdicionarFecharCaixa(fechar);
+
+                MessageBox.Show(mensagem);
+                LimparCamposFecharCaixa();
+                this.Close();
+            }
+
+            //FormBemVindo BvC = new FormBemVindo();
+            //BvC.ShowDialog();
+
+           // PreencherListView();
+            
+        }
+        public void LimparCamposFecharCaixa()
+        {
+            txbIdLoginFechar.Text = String.Empty;
+            txbValorFinal.Text = String.Empty;
         }
 
         private void LblIdUsuarioFC_Click(object sender, EventArgs e)

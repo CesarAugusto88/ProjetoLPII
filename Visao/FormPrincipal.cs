@@ -20,7 +20,10 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
-        {            
+        {// a função só aceita os textboxs que estão no seu form. para aceitar outros deve
+         // criar um objeto da clase do form para ver se da certo.
+         // Criar uma verificação dos textboxs dos cadastros para Não deixar cadastrar qndo
+         // os textboxs estiverem vazios
             btnAbrirCaixa.Visible = false;
             btnFecharCaixa.Visible = false;
             btnCadastrarPizza.Visible = false;
@@ -69,7 +72,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
                 }
                 else
-                {
+                {// fazer para corrigir o login ou a senha, conforme reconhecido
                     MessageBox.Show("Login não encontrado, verifique login e senha", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -93,36 +96,13 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void BtnCadastrarCliente_Click(object sender, EventArgs e)
         {
-
-            Cliente cliente = new Cliente();
-            ControleCliente cc = new ControleCliente();
-            string mensagem = cc.AdicionarCliente(cliente); //Chama o método que realiza a inserção no banco.
-
-            MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //MessageBox.Show(mensagem);
-            LimpaTextoCliente();
-
-
-            //FormBemVindo BvC = new FormBemVindo();
-            //BvC.ShowDialog();
-            //PreencherListView();
+            FormCadastrarCliente cadcli = new FormCadastrarCliente();
+            cadcli.ShowDialog();
+            
         }
 
-        // Não está reconhecendo os txb... nem no objeto.
-        public void LimpaTextoCliente()
-        {
-           // txbNomeC.Text = "";
-           // txbCpfC.Text = "";
-           // txbRgC.Text = "";
-           // txbGeneroC.Text = "";
-           // txbCelularC.Text = "";
-           // txbEmailC.Text = "";
-           // txbLograC.Text = "";
-           // txbNumeroC.Text = "";
-           // txbCompC.Text = "";
-           // txbBairroC.Text = "";
-        }
+       
+        
 
         private void BtnAbrirCaixa_Click(object sender, EventArgs e)
         {
@@ -136,9 +116,18 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             FC.ShowDialog();
         }
 
-        private void BtnEstoque_Click(object sender, EventArgs e)
-        {
+        
 
+        private void BtnFazerPedido_Click(object sender, EventArgs e)
+        {
+            FormFazerPedido FP = new FormFazerPedido();
+            FP.ShowDialog();
+        }
+
+        private void BtnCadastrarPizza_Click(object sender, EventArgs e)
+        {
+            FormCadastrarPizza CadP = new FormCadastrarPizza();
+            CadP.ShowDialog();
         }
     }
 }

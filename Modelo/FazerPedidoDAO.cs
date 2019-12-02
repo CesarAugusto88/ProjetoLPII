@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Projeto_Pizzaria_das_Couves.Modelo
 {
-    class ClienteDAO
+    class FazerPedidoDAO
     {
         public string Mensagem { get; private set; }
         SqlCommand cmd = new SqlCommand(); //Cria objeto para definição e execução de comando SQL.
@@ -17,22 +15,14 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         //Armazena o retorno de uma consulta feita no banco.
         SqlDataReader dr;
 
-        public string Adicionar(Cliente cliente)
+        public string Adicionar(FazerPedido pedido)
         {
             Mensagem = String.Empty;
-            //Comando SQL
-            cmd.CommandText = "insert into Cliente values (@nome, @cpf, @rg, @celular, @genero, @logradouro, @numero, @complemento, @bairro)";
-            cmd.Parameters.AddWithValue("nome", cliente.Nome);
-            cmd.Parameters.AddWithValue("cpf", cliente.CPF);
-            cmd.Parameters.AddWithValue("rg", cliente.RG);
-            cmd.Parameters.AddWithValue("celular", cliente.Celular);
-            cmd.Parameters.AddWithValue("cep", cliente.Genero);
-            cmd.Parameters.AddWithValue("logradouro", cliente.Logradouro);
-            cmd.Parameters.AddWithValue("numero", cliente.Numero);
-            cmd.Parameters.AddWithValue("complemento", cliente.Complemento);
-            cmd.Parameters.AddWithValue("bairro", cliente.Bairro);
+            //Comando SQL. TERMINAR O INSET INTO APOS FAZER TAB NO BANCO...
+            cmd.CommandText = "insert into FazerPedido values (@idCliente)";
+            cmd.Parameters.AddWithValue("idCliente", pedido.FkIdCliente);
             
-            
+
 
             try
             {
@@ -44,8 +34,8 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             {
                 Mensagem = ex.Message;
             }
-            //Seleciona o maior Id de endereço, ou seja, o último adicionado.
-            cmd.CommandText = "SELECT MAX(Id) FROM Cliente";
+            //Seleciona o maior Id de endereço (Endereco?), ou seja, o último adicionado.
+            cmd.CommandText = "SELECT MAX(Id) FROM FazerPedido";
             try
             {
                 cmd.Connection = con.Conectar();
@@ -58,8 +48,23 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
 
             if (Mensagem == String.Empty)
             {
-                //dr.Read();
+                // Colocado junto sem endereço no começo
+                //dr.Read(); 
+                /*
+                cmd.CommandText = "insert into Cliente values (@nome, @cpf, @rg, @celular, @genero, @email, @endereco)";
+                cmd.Parameters.AddWithValue("nome", cliente.Nome);
+                cmd.Parameters.AddWithValue("cpf", cliente.CPF);
+                cmd.Parameters.AddWithValue("rg", cliente.RG);
+                cmd.Parameters.AddWithValue("celular", cliente.Celular);
+                cmd.Parameters.AddWithValue("genero", cliente.Genero);
+                cmd.Parameters.AddWithValue("email", cliente.Email);
                 
+                while (dr.Read()) // tira essa função???
+                {
+                    // endereco
+                    cmd.Parameters.AddWithValue("valor", dr.GetInt32(0));
+                } */
+
                 dr.Close();
                 //conectar com banco
                 try
@@ -69,7 +74,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
                     //Executar comando.
                     cmd.ExecuteNonQuery();
                     //Exibe mensagem;
-                    Mensagem = "Cliente cadastrado com sucesso!!!";
+                    Mensagem = "Pedido cadastrada com sucesso!!!";
                 }
                 catch (SqlException ex)
                 {
@@ -80,10 +85,10 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return Mensagem;
         }
 
-        public SqlDataReader RetornarClientes()
+        public SqlDataReader RetornarFazerPedidos(string Nome)
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from Cliente";
+            cmd.CommandText = "select * from FazerPedido";
             //Parametros que serão substituídos no CommandText.
 
             try
@@ -105,11 +110,12 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return null;
         }
 
-        public SqlDataReader RetornarCliente(int indice)
+        public SqlDataReader RetornarFazerPedido(int indice)
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from Cliente where Id = @id";
+            cmd.CommandText = "select * from FazerPedido where Id = @id";
             cmd.Parameters.AddWithValue("id", indice);
+
 
             try
             {
@@ -129,5 +135,28 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             con.Desconectar();
             return null;
         }
+        /* exemplo carrega dados
+        public SqlDataReader CarregaCliLis(string texto = " ")
+        {
+
+            SqlConnection conexao = new SqlConnection(caminho);
+
+            conexao.Open();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            if (texto == " ")
+                comando.CommandText = " select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES";
+            else
+            {
+                comando.CommandText = "select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES " +
+                                      "WHERE NOME_CLI LIKE  '%" + texto + "%'";
+            }
+
+
+            comando.CommandType = CommandType.Text;
+            SqlDataReader LINHA = comando.ExecuteReader();
+            return LINHA;
+
+        } */
     }
 }

@@ -26,5 +26,9 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             this.Ingrediente4 = ingrediente4;
             this.Valor = valor;
         }
+
+        public Pizza()
+        {
+        }
     }
 }
