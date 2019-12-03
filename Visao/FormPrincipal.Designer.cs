@@ -57,7 +57,7 @@
             // btnFazerPedido
             // 
             this.btnFazerPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFazerPedido.Location = new System.Drawing.Point(106, 322);
+            this.btnFazerPedido.Location = new System.Drawing.Point(98, 291);
             this.btnFazerPedido.Name = "btnFazerPedido";
             this.btnFazerPedido.Size = new System.Drawing.Size(232, 40);
             this.btnFazerPedido.TabIndex = 1;
@@ -68,7 +68,7 @@
             // btnCadastrarPizza
             // 
             this.btnCadastrarPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarPizza.Location = new System.Drawing.Point(107, 276);
+            this.btnCadastrarPizza.Location = new System.Drawing.Point(99, 245);
             this.btnCadastrarPizza.Name = "btnCadastrarPizza";
             this.btnCadastrarPizza.Size = new System.Drawing.Size(231, 40);
             this.btnCadastrarPizza.TabIndex = 2;
@@ -79,7 +79,7 @@
             // btnCadastrarFuncionario
             // 
             this.btnCadastrarFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarFuncionario.Location = new System.Drawing.Point(108, 184);
+            this.btnCadastrarFuncionario.Location = new System.Drawing.Point(100, 153);
             this.btnCadastrarFuncionario.Name = "btnCadastrarFuncionario";
             this.btnCadastrarFuncionario.Size = new System.Drawing.Size(230, 40);
             this.btnCadastrarFuncionario.TabIndex = 4;
@@ -90,7 +90,7 @@
             // btnAbrirCaixa
             // 
             this.btnAbrirCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbrirCaixa.Location = new System.Drawing.Point(108, 138);
+            this.btnAbrirCaixa.Location = new System.Drawing.Point(100, 107);
             this.btnAbrirCaixa.Name = "btnAbrirCaixa";
             this.btnAbrirCaixa.Size = new System.Drawing.Size(230, 40);
             this.btnAbrirCaixa.TabIndex = 5;
@@ -101,7 +101,7 @@
             // btnSair
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(425, 331);
+            this.btnSair.Location = new System.Drawing.Point(417, 300);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(150, 41);
             this.btnSair.TabIndex = 6;
@@ -112,7 +112,7 @@
             // btnEntrar
             // 
             this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Location = new System.Drawing.Point(425, 284);
+            this.btnEntrar.Location = new System.Drawing.Point(417, 253);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(150, 41);
             this.btnEntrar.TabIndex = 7;
@@ -123,7 +123,7 @@
             // btnFecharCaixa
             // 
             this.btnFecharCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFecharCaixa.Location = new System.Drawing.Point(108, 368);
+            this.btnFecharCaixa.Location = new System.Drawing.Point(100, 337);
             this.btnFecharCaixa.Name = "btnFecharCaixa";
             this.btnFecharCaixa.Size = new System.Drawing.Size(230, 41);
             this.btnFecharCaixa.TabIndex = 8;
@@ -134,7 +134,7 @@
             // txbLogin
             // 
             this.txbLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbLogin.Location = new System.Drawing.Point(518, 185);
+            this.txbLogin.Location = new System.Drawing.Point(510, 154);
             this.txbLogin.Name = "txbLogin";
             this.txbLogin.Size = new System.Drawing.Size(199, 29);
             this.txbLogin.TabIndex = 10;
@@ -142,7 +142,7 @@
             // txbSenha
             // 
             this.txbSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSenha.Location = new System.Drawing.Point(518, 230);
+            this.txbSenha.Location = new System.Drawing.Point(510, 199);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(199, 29);
@@ -152,7 +152,7 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(420, 184);
+            this.lblLogin.Location = new System.Drawing.Point(412, 153);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(73, 29);
             this.lblLogin.TabIndex = 12;
@@ -162,7 +162,7 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.Location = new System.Drawing.Point(420, 229);
+            this.lblSenha.Location = new System.Drawing.Point(412, 198);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(82, 29);
             this.lblSenha.TabIndex = 13;
@@ -171,7 +171,7 @@
             // btnCadastrarCliente
             // 
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(108, 230);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(100, 199);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(230, 40);
             this.btnCadastrarCliente.TabIndex = 3;

@@ -51,6 +51,13 @@
             this.txbLograC = new System.Windows.Forms.TextBox();
             this.listVclientes = new System.Windows.Forms.ListView();
             this.btnEditarC = new System.Windows.Forms.Button();
+            this.btnDeletarCliente = new System.Windows.Forms.Button();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.celular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.logradouro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.numero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bairro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblNomeC
@@ -158,7 +165,7 @@
             // btnCadastrarCliente
             // 
             this.btnCadastrarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarCliente.Location = new System.Drawing.Point(597, 300);
+            this.btnCadastrarCliente.Location = new System.Drawing.Point(597, 255);
             this.btnCadastrarCliente.Name = "btnCadastrarCliente";
             this.btnCadastrarCliente.Size = new System.Drawing.Size(214, 45);
             this.btnCadastrarCliente.TabIndex = 10;
@@ -250,29 +257,78 @@
             // 
             // listVclientes
             // 
+            this.listVclientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.nome,
+            this.celular,
+            this.logradouro,
+            this.numero,
+            this.bairro});
             this.listVclientes.HideSelection = false;
-            this.listVclientes.Location = new System.Drawing.Point(152, 423);
+            this.listVclientes.Location = new System.Drawing.Point(117, 410);
             this.listVclientes.Name = "listVclientes";
             this.listVclientes.Size = new System.Drawing.Size(694, 141);
             this.listVclientes.TabIndex = 22;
             this.listVclientes.UseCompatibleStateImageBehavior = false;
-            this.listVclientes.View = System.Windows.Forms.View.List;
+            this.listVclientes.View = System.Windows.Forms.View.Details;
+            this.listVclientes.SelectedIndexChanged += new System.EventHandler(this.ListVclientes_SelectedIndexChanged);
             // 
             // btnEditarC
             // 
             this.btnEditarC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarC.Location = new System.Drawing.Point(597, 361);
+            this.btnEditarC.Location = new System.Drawing.Point(597, 308);
             this.btnEditarC.Name = "btnEditarC";
             this.btnEditarC.Size = new System.Drawing.Size(214, 45);
             this.btnEditarC.TabIndex = 23;
             this.btnEditarC.Text = "Editar Cliente";
             this.btnEditarC.UseVisualStyleBackColor = true;
             // 
+            // btnDeletarCliente
+            // 
+            this.btnDeletarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarCliente.Location = new System.Drawing.Point(597, 359);
+            this.btnDeletarCliente.Name = "btnDeletarCliente";
+            this.btnDeletarCliente.Size = new System.Drawing.Size(214, 45);
+            this.btnDeletarCliente.TabIndex = 24;
+            this.btnDeletarCliente.Text = "Deletar Cliente";
+            this.btnDeletarCliente.UseVisualStyleBackColor = true;
+            // 
+            // id
+            // 
+            this.id.Text = "Id";
+            this.id.Width = 29;
+            // 
+            // nome
+            // 
+            this.nome.Text = "Nome";
+            this.nome.Width = 164;
+            // 
+            // celular
+            // 
+            this.celular.Text = "Celular";
+            this.celular.Width = 106;
+            // 
+            // logradouro
+            // 
+            this.logradouro.Text = "Rua";
+            this.logradouro.Width = 109;
+            // 
+            // numero
+            // 
+            this.numero.Text = "Numero";
+            this.numero.Width = 53;
+            // 
+            // bairro
+            // 
+            this.bairro.Text = "Bairro";
+            this.bairro.Width = 184;
+            // 
             // FormCadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 576);
+            this.Controls.Add(this.btnDeletarCliente);
             this.Controls.Add(this.btnEditarC);
             this.Controls.Add(this.listVclientes);
             this.Controls.Add(this.txbLograC);
@@ -330,5 +386,12 @@
         private System.Windows.Forms.TextBox txbLograC;
         private System.Windows.Forms.ListView listVclientes;
         private System.Windows.Forms.Button btnEditarC;
+        private System.Windows.Forms.Button btnDeletarCliente;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader nome;
+        private System.Windows.Forms.ColumnHeader celular;
+        private System.Windows.Forms.ColumnHeader logradouro;
+        private System.Windows.Forms.ColumnHeader numero;
+        private System.Windows.Forms.ColumnHeader bairro;
     }
 }

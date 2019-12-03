@@ -19,9 +19,12 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         {
             Mensagem = String.Empty;
             //Comando SQL. TERMINAR O INSET INTO APOS FAZER TAB NO BANCO...
-            cmd.CommandText = "insert into FazerPedido values (@idCliente)";
-            cmd.Parameters.AddWithValue("idCliente", pedido.FkIdCliente);
-            
+            cmd.CommandText = "insert into FazerPedido values (@FkIdCliente, @NomePizza, @ValorPizza, @ValorEntrega)";
+            cmd.Parameters.AddWithValue("FkIdCliente", pedido.FkIdCliente);
+            cmd.Parameters.AddWithValue("NomePizza", pedido.NomePizza);
+            cmd.Parameters.AddWithValue("ValorPizza", pedido.ValorPizza);
+            cmd.Parameters.AddWithValue("ValorEntrega", pedido.ValorEntrega);
+
 
 
             try
@@ -88,7 +91,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         public SqlDataReader RetornarFazerPedidos(string Nome)
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from FazerPedido";
+            cmd.CommandText = "select FkIdCliente, NomePizza from FazerPedido";
             //Parametros que serão substituídos no CommandText.
 
             try
@@ -134,29 +137,6 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             }
             con.Desconectar();
             return null;
-        }
-        /* exemplo carrega dados
-        public SqlDataReader CarregaCliLis(string texto = " ")
-        {
-
-            SqlConnection conexao = new SqlConnection(caminho);
-
-            conexao.Open();
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexao;
-            if (texto == " ")
-                comando.CommandText = " select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES";
-            else
-            {
-                comando.CommandText = "select ID_CLI,NOME_CLI,ENDERECO_CLI,ESTADO_CLI,TEL_CLI from CLIENTES " +
-                                      "WHERE NOME_CLI LIKE  '%" + texto + "%'";
-            }
-
-
-            comando.CommandType = CommandType.Text;
-            SqlDataReader LINHA = comando.ExecuteReader();
-            return LINHA;
-
-        } */
+        }       
     }
 }

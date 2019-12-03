@@ -39,6 +39,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                 MessageBox.Show(mensagem);
                 LimparCamposAbrirCaixa();
                 this.Close();
+               
             }
 
             //FormBemVindo BvC = new FormBemVindo();

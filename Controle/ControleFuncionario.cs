@@ -25,7 +25,7 @@ namespace Projeto_Pizzaria_das_Couves.Controle
         public SqlDataReader RetornarFuncionarios()
         {
             FuncionarioDAO func = new FuncionarioDAO();
-            return func.RetornarFucionarios();
+            return func.RetornarFuncionarios();
         }
 
         public SqlDataReader RetornarFuncionario(int indice)

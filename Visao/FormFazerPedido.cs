@@ -23,9 +23,84 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void FormFazerPedido_Load(object sender, EventArgs e)
         {
+            PreencherListViewCli();
+            PreencherListViewPizza();
             PreencherListView();
+            
         }
 
+        public void PreencherListViewCli()
+        {
+            listVclientesPedido.Items.Clear();
+
+            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+            ControleCliente cc = new ControleCliente();
+            dr = cc.RetornarClientes(); //Chama o método responsável pela realização da consulta. 
+
+
+
+            if (dr != null) //Verifico 
+            {
+                while (dr.Read())
+                {
+                    // esta aparecendo o Id do Cliente e é o "Id identity" ?
+                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());//Id
+                    lv.SubItems.Add(dr.GetString(1));//Nome
+                    lv.SubItems.Add(dr.GetString(2));//celular
+                    lv.SubItems.Add(dr.GetString(3));//Rua
+                    lv.SubItems.Add(dr.GetInt32(4).ToString());//Numero
+                    lv.SubItems.Add(dr.GetString(5));//Bairro
+
+                    listVclientesPedido.Items.Add(lv); //Adiciona a linha criada à listview.
+                }
+            }
+        }
+        public void PreencherListViewPizza()
+        {
+            listVpizzasPedido.Items.Clear();
+
+            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+            ControlePizza pp = new ControlePizza();
+            dr = pp.RetornarPizzas(txbNomepizzaPedido.Text); //Chama o método responsável pela realização da consulta. 
+
+
+
+            if (dr != null) //Verifico 
+            {
+                while (dr.Read())
+                {
+                   
+                    ListViewItem lv = new ListViewItem(dr.GetString(0).ToString());// Nome Pizza
+                    lv.SubItems.Add(dr.GetDecimal(1).ToString());//Valor Pizza.
+                    listVpizzasPedido.Items.Add(lv); //Adiciona a linha criada à listview.
+                }
+            }
+        }
+
+
+        public void PreencherListView()
+        {
+            listVpedidos.Items.Clear();
+
+            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+            ControleFazerPedido pp = new ControleFazerPedido();
+            dr = pp.RetornarFazerPedidos(txbNomepizzaPedido.Text); //Chama o método responsável pela realização da consulta. 
+                                                                   
+
+
+            if (dr != null) //Verifico 
+            {
+                while (dr.Read())
+                {
+                    // não aparece os valores. Ver o tabela no banco de dados
+                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// FkIdCliente
+                    lv.SubItems.Add(dr.GetString(1));//Nome Pizza.
+                   // lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valor Pizza não aparece 
+                   // lv.SubItems.Add(dr.GetDecimal(3).ToString());//Valor Entrega não aparece
+                    listVpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
+                }
+            }
+        }
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -36,68 +111,9 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             
         }
 
-        private void listVpedidos_Click(object sender, EventArgs e)
-        {
-            int indicePedido = int.Parse(listVpedidos.SelectedItems[0].SubItems[0].Text);
-            int indiceId = -1;// para que serve?
-            ControleFazerPedido ped = new ControleFazerPedido();
-            SqlDataReader dr = ped.RetornarFazerPedido(indicePedido);
+       
+        
 
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    txbIdCpedido.Text = dr.GetString(1);
-                    txbNomepizzaPedido.Text = dr.GetString(2);
-                    txbValorpizzaPedido.Text = dr.GetString(3);
-                    txbValorentregaPedido.Text = dr.GetString(4);
-                    
-                    indiceId = dr.GetInt32(8);// nao sei usar
-                }
-            }
-
-
-            ControleFazerPedido pedd = new ControleFazerPedido();
-            dr = pedd.RetornarFazerPedido(indicePedido);
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    txbIdCpedido.Text = dr.GetString(1);
-                    txbNomepizzaPedido.Text = dr.GetInt32(2).ToString();
-                    txbValorpizzaPedido.Text = dr.GetString(3);
-                    txbValorentregaPedido.Text = dr.GetString(4);                  
-
-                }
-            }
-        }
-
-        public void PreencherListView()
-        {
-            listVpedidos.Items.Clear();
-
-            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
-            ControleFazerPedido ped = new ControleFazerPedido();
-            dr = ped.RetornarFazerPedidos(txbIdCpedido.Text); //Chama o método responsável pela realização da consulta. 
-                                                       // tres lugares para alterar RetornarPizzas
-                                                       // ->parâmetros nos métodos
-
-            if (dr != null) //Verifico 
-            {
-                while (dr.Read())
-                {
-                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());
-                    lv.SubItems.Add(dr.GetString(1));//Id Cliente - FkId no banco
-                    lv.SubItems.Add(dr.GetString(2));//Nome Pizza
-                    lv.SubItems.Add(dr.GetString(3));//Valor Pizza
-                    lv.SubItems.Add(dr.GetString(4));//Valor Entrega
-                    
-                    listVpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
-                    //listVpizzasPedido.Items.Add(lp); //mostrar pizzas cadastradas?
-                    //listVclientesPedido.Items.Add(lc); //mostra clientes cadastrados?
-                }
-            }
-        }
 
         public void LimparCamposFazerPedido()
         {
@@ -126,6 +142,33 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                 string mensagem = fpedido.AdicionarFazerPedido(pedido);
 
                 MessageBox.Show(mensagem);
+                void PreencherListView()
+                {
+                    listVpedidos.Items.Clear();
+
+                    SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+                    ControleFazerPedido pp = new ControleFazerPedido();
+                    dr = pp.RetornarFazerPedidos(txbNomepizzaPedido.Text); //Chama o método responsável pela realização da consulta. 
+                                                               // tres lugares para alterar RetornarPizzas
+
+
+                    if (dr != null) //Verifico 
+                    {
+                        while (dr.Read())
+                        {
+                            ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// FkIdCliente
+                            lv.SubItems.Add(dr.GetString(1));//Nome Pizza
+                           //  lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valor Pizza 
+                           // lv.SubItems.Add(dr.GetDecimal(3).ToString());//Valor Entrega
+
+                            listVpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
+                        }
+                    }
+                }
+
+                PreencherListView();
+                
+
                 LimparCamposFazerPedido();
             }
 

@@ -21,12 +21,13 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         {
             Mensagem = String.Empty;
             //Comando SQL
-            cmd.CommandText = "insert into Cliente values (@nome, @cpf, @rg, @celular, @genero, @logradouro, @numero, @complemento, @bairro)";
+            cmd.CommandText = "insert into Cliente values (@nome, @cpf, @rg, @celular, @genero, @email, @logradouro, @numero, @complemento, @bairro)";
             cmd.Parameters.AddWithValue("nome", cliente.Nome);
             cmd.Parameters.AddWithValue("cpf", cliente.CPF);
             cmd.Parameters.AddWithValue("rg", cliente.RG);
             cmd.Parameters.AddWithValue("celular", cliente.Celular);
-            cmd.Parameters.AddWithValue("cep", cliente.Genero);
+            cmd.Parameters.AddWithValue("genero", cliente.Genero);
+            cmd.Parameters.AddWithValue("email", cliente.Email);
             cmd.Parameters.AddWithValue("logradouro", cliente.Logradouro);
             cmd.Parameters.AddWithValue("numero", cliente.Numero);
             cmd.Parameters.AddWithValue("complemento", cliente.Complemento);
@@ -83,7 +84,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         public SqlDataReader RetornarClientes()
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from Cliente";
+            cmd.CommandText = "select Id, Nome, Celular, Logradouro, Numero, Bairro from Cliente";
             //Parametros que serão substituídos no CommandText.
 
             try

@@ -42,13 +42,16 @@
             this.txbNomePizza = new System.Windows.Forms.TextBox();
             this.lblNomePizza = new System.Windows.Forms.Label();
             this.listVpizzas = new System.Windows.Forms.ListView();
+            this.clNomeP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clValorP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnEditarPizza = new System.Windows.Forms.Button();
+            this.btnDeletarPizza = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCadPizza
             // 
             this.btnCadPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadPizza.Location = new System.Drawing.Point(535, 214);
+            this.btnCadPizza.Location = new System.Drawing.Point(483, 186);
             this.btnCadPizza.Name = "btnCadPizza";
             this.btnCadPizza.Size = new System.Drawing.Size(191, 41);
             this.btnCadPizza.TabIndex = 0;
@@ -167,30 +170,53 @@
             // 
             // listVpizzas
             // 
+            this.listVpizzas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clNomeP,
+            this.clValorP});
             this.listVpizzas.HideSelection = false;
-            this.listVpizzas.Location = new System.Drawing.Point(76, 390);
+            this.listVpizzas.Location = new System.Drawing.Point(230, 357);
             this.listVpizzas.Name = "listVpizzas";
-            this.listVpizzas.Size = new System.Drawing.Size(656, 119);
+            this.listVpizzas.Size = new System.Drawing.Size(339, 175);
             this.listVpizzas.TabIndex = 13;
             this.listVpizzas.UseCompatibleStateImageBehavior = false;
-            this.listVpizzas.View = System.Windows.Forms.View.List;
+            this.listVpizzas.View = System.Windows.Forms.View.Details;
             this.listVpizzas.SelectedIndexChanged += new System.EventHandler(this.ListVpizzas_SelectedIndexChanged);
+            // 
+            // clNomeP
+            // 
+            this.clNomeP.Text = "Nome";
+            this.clNomeP.Width = 170;
+            // 
+            // clValorP
+            // 
+            this.clValorP.Text = "Valor";
             // 
             // btnEditarPizza
             // 
             this.btnEditarPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarPizza.Location = new System.Drawing.Point(535, 274);
+            this.btnEditarPizza.Location = new System.Drawing.Point(541, 233);
             this.btnEditarPizza.Name = "btnEditarPizza";
             this.btnEditarPizza.Size = new System.Drawing.Size(191, 41);
             this.btnEditarPizza.TabIndex = 14;
             this.btnEditarPizza.Text = "Editar Pizza";
             this.btnEditarPizza.UseVisualStyleBackColor = true;
             // 
+            // btnDeletarPizza
+            // 
+            this.btnDeletarPizza.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarPizza.Location = new System.Drawing.Point(603, 280);
+            this.btnDeletarPizza.Name = "btnDeletarPizza";
+            this.btnDeletarPizza.Size = new System.Drawing.Size(191, 41);
+            this.btnDeletarPizza.TabIndex = 15;
+            this.btnDeletarPizza.Text = "Deletar Pizza";
+            this.btnDeletarPizza.UseVisualStyleBackColor = true;
+            // 
             // FormCadastrarPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 569);
+            this.Controls.Add(this.btnDeletarPizza);
             this.Controls.Add(this.btnEditarPizza);
             this.Controls.Add(this.listVpizzas);
             this.Controls.Add(this.txbNomePizza);
@@ -232,5 +258,8 @@
         private System.Windows.Forms.Label lblNomePizza;
         private System.Windows.Forms.ListView listVpizzas;
         private System.Windows.Forms.Button btnEditarPizza;
+        private System.Windows.Forms.Button btnDeletarPizza;
+        private System.Windows.Forms.ColumnHeader clNomeP;
+        private System.Windows.Forms.ColumnHeader clValorP;
     }
 }

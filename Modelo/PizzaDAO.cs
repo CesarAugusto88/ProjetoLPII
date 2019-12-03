@@ -89,10 +89,10 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return Mensagem;
         }
 
-        public SqlDataReader RetornarPizzas(string Nome)
+        public SqlDataReader RetornarPizzas()
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from Pizza";
+            cmd.CommandText = "select Nome, Valor from Pizza";
             //Parametros que serão substituídos no CommandText.
 
             try

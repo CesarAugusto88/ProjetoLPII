@@ -54,7 +54,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                     MessageBox.Show("Logado com sucesso!", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormBemVindo WC = new FormBemVindo();
                     WC.ShowDialog();
-                   // somente botão de abrir caixa e sair...
+                    // somente botão de abrir caixa, sair fica no click do fechar caixa...
                     lblLogin.Visible = false;
                     lblSenha.Visible = false;
                     btnEntrar.Visible = false;
@@ -62,13 +62,15 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                     txbLogin.Visible = false;
                     txbSenha.Visible = false;
                     btnAbrirCaixa.Visible = true;
-                    btnSair.Visible = true;
                     btnCadastrarCliente.Visible = true;
                     btnCadastrarFuncionario.Visible = true;
                     btnCadastrarPizza.Visible = true;
-                    btnFazerPedido.Visible = true;
-                    btnFecharCaixa.Visible = true;
+                    btnFazerPedido.Visible = false;
+                    btnSair.Visible = true;
 
+                    /*
+                    
+                    btnFecharCaixa.Visible = true;*/
 
                 }
                 else
@@ -108,12 +110,20 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         {
             FormAbrirCaixa AC = new FormAbrirCaixa();
             AC.ShowDialog();
+            btnAbrirCaixa.Visible = false;
+            btnCadastrarCliente.Visible = true;
+            btnCadastrarFuncionario.Visible = true;
+            btnCadastrarPizza.Visible = true;
+            btnFazerPedido.Visible = true;
+            btnFecharCaixa.Visible = true;
+            btnFazerPedido.Visible = true;
         }
 
         private void BtnFecharCaixa_Click(object sender, EventArgs e)
         {
             FormFecharCaixa FC = new FormFecharCaixa();
             FC.ShowDialog();
+            btnFecharCaixa.Visible = false;
         }
 
         

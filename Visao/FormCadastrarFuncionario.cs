@@ -25,28 +25,30 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             PreencherListView();
 
         }
-
         public void PreencherListView()
         {
             listVfuncionarios.Items.Clear();
 
             SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
-            ControleCliente cc = new ControleCliente();
-            dr = cc.RetornarClientes(); //Chama o método responsável pela realização da consulta. 
+            ControleFuncionario fu = new ControleFuncionario();
+            dr = fu.RetornarFuncionarios(); //Chama o método responsável pela realização da consulta. 
 
             if (dr != null) //Verifico 
             {
                 while (dr.Read())
                 {
-                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());
-                    lv.SubItems.Add(dr.GetString(1));//Nome
-                    lv.SubItems.Add(dr.GetString(2));//CPF
-                    lv.SubItems.Add(dr.GetString(3));//RG
-                    lv.SubItems.Add(dr.GetString(4));//Email
+                    ListViewItem lv = new ListViewItem(dr.GetString(0).ToString()); // cria e ja atribui
+                    lv.SubItems.Add(dr.GetString(1));//Celular
+                    lv.SubItems.Add(dr.GetString(2));//Email
+                    lv.SubItems.Add(dr.GetString(3));//Logradouro
+                    lv.SubItems.Add(dr.GetInt32(4).ToString());//Numero
+                    lv.SubItems.Add(dr.GetString(5));//Bairro
                     listVfuncionarios.Items.Add(lv); //Adiciona a linha criada à listview.
                 }
             }
         }
+
+       
 
         private void LblConfirmaF_Click(object sender, EventArgs e)
         {
@@ -102,7 +104,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
                 //MessageBox.Show("O Campo de Nome é Obrigatorio!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Txt_Nome.Focus();
-                PreencherListView();
+                //PreencherListView();
             }
             else
             {
@@ -132,18 +134,19 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                     listVfuncionarios.Items.Clear();
 
                     SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
-                    ControleCliente cc = new ControleCliente();
-                    dr = cc.RetornarClientes(); //Chama o método responsável pela realização da consulta. 
+                    ControleFuncionario fu = new ControleFuncionario();
+                    dr = fu.RetornarFuncionarios(); //Chama o método responsável pela realização da consulta. 
 
                     if (dr != null) //Verifico 
                     {
                         while (dr.Read())
                         {
-                            ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());
-                            lv.SubItems.Add(dr.GetString(1));//Nome
-                            lv.SubItems.Add(dr.GetString(2));//CPF
-                            lv.SubItems.Add(dr.GetString(3));//RG
-                            lv.SubItems.Add(dr.GetString(4));//Email
+                            ListViewItem lv = new ListViewItem(dr.GetString(0).ToString()); // cria e ja atribui
+                            lv.SubItems.Add(dr.GetString(1));//Celular
+                            lv.SubItems.Add(dr.GetString(2));//Email
+                            lv.SubItems.Add(dr.GetString(3));//Logradouro
+                            lv.SubItems.Add(dr.GetInt32(4).ToString());//Numero
+                            lv.SubItems.Add(dr.GetString(5));//Bairro
                             listVfuncionarios.Items.Add(lv); //Adiciona a linha criada à listview.
                         }
                     }

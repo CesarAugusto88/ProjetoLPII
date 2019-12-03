@@ -23,7 +23,7 @@ namespace Projeto_Pizzaria_das_Couves.Controle
         public SqlDataReader RetornarPizzas(string Nome)
         {
             PizzaDAO pizz = new PizzaDAO();
-            return pizz.RetornarPizzas(Nome);
+            return pizz.RetornarPizzas();
         }
 
         public SqlDataReader RetornarPizza(int indice)

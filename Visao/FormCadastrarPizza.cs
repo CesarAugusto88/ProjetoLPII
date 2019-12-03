@@ -48,80 +48,40 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                 string mensagem = piz.AdicionarPizza(pizza);
 
                 MessageBox.Show(mensagem);
+
+                void PreencherListView()
+                {
+                    listVpizzas.Items.Clear();
+
+                    SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+                    ControlePizza pi = new ControlePizza();
+                    dr = pi.RetornarPizzas(txbNomePizza.Text); //Chama o método responsável pela realização da consulta. 
+                                                               
+                    if (dr != null) //Verifico 
+                    {
+                        while (dr.Read())
+                        {
+                            ListViewItem lv = new ListViewItem(dr.GetString(0).ToString());// Nome
+                            lv.SubItems.Add(dr.GetDecimal(1).ToString());//Valor 
+
+                            listVpizzas.Items.Add(lv); //Adiciona a linha criada à listview.
+                        }
+                    }
+                }
+
+                PreencherListView();
                 LimparCamposPizza();
             }
 
+            
             //FormBemVindo BvC = new FormBemVindo();
             //BvC.ShowDialog();
-            PreencherListView();
-
-        }
-        private void listVpizzas_Click(object sender, EventArgs e)
-        {
-            int indicePizza = int.Parse(listVpizzas.SelectedItems[0].SubItems[0].Text);
-            int indiceId = -1;// para que serve?
-            ControlePizza pp = new ControlePizza();
-            SqlDataReader dr = pp.RetornarPizza(indicePizza);
-
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    txbNomePizza.Text = dr.GetString(1);
-                    txbIng1.Text = dr.GetString(2);
-                    txbIng2.Text = dr.GetString(3);
-                    txbIng3.Text = dr.GetString(4);
-                    txbIng4.Text = dr.GetString(5);
-                    txbValorP.Text = dr.GetString(6);
-
-                    
-                    indiceId = dr.GetInt32(8);// nao sei usar
-                }
-            }
-
-
-            ControlePizza p = new ControlePizza();
-            dr = p.RetornarPizza(indiceId);
-            if (dr != null)
-            {
-                while (dr.Read())
-                {
-                    txbNomePizza.Text = dr.GetString(1);
-                    txbIng1.Text = dr.GetInt32(2).ToString();
-                    txbIng2.Text = dr.GetString(3);
-                    txbIng3.Text = dr.GetString(4);
-                    txbIng4.Text = dr.GetString(5);
-                    txbValorP.Text = dr.GetString(6);
-                    
-                }
-            }
-        }
-
-        public void PreencherListView()
-        {
-            listVpizzas.Items.Clear();
-
-            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
-            ControlePizza pi = new ControlePizza();
-            dr = pi.RetornarPizzas(txbNomePizza.Text); //Chama o método responsável pela realização da consulta. 
-            // tres lugares para alterar RetornarPizzas
             
 
-            if (dr != null) //Verifico 
-            {
-                while (dr.Read())
-                {
-                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());
-                    lv.SubItems.Add(dr.GetString(1));//Nome pizza
-                    lv.SubItems.Add(dr.GetString(2));//Ingrediente 1
-                    lv.SubItems.Add(dr.GetString(3));//ingrediente 2
-                    lv.SubItems.Add(dr.GetString(4));//ingrediente 3
-                    lv.SubItems.Add(dr.GetString(5));//ingrediente 4
-                    //lv.SubItems.Add(dr.GetString(6));//Valor da pizza. Com Erro
-                    listVpizzas.Items.Add(lv); //Adiciona a linha criada à listview.
-                }
-            }
         }
+        
+
+        
 
         public void LimparCamposPizza()
         {
@@ -133,7 +93,27 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             txbValorP.Text = String.Empty;            
         }
 
+        public void PreencherListView()
+        {
+            listVpizzas.Items.Clear();
 
+            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+            ControlePizza pi = new ControlePizza();
+            dr = pi.RetornarPizzas(txbNomePizza.Text); //Chama o método responsável pela realização da consulta. 
+                                                       // tres lugares para alterar RetornarPizzas
+
+
+            if (dr != null) //Verifico 
+            {
+                while (dr.Read())
+                {
+                    ListViewItem lv = new ListViewItem(dr.GetString(0).ToString());// Nome
+                    lv.SubItems.Add(dr.GetDecimal(1).ToString());//Valor ERRO
+
+                    listVpizzas.Items.Add(lv); //Adiciona a linha criada à listview.
+                }
+            }
+        }
         private void FormCadastrarPizza_Load(object sender, EventArgs e)
         {
             PreencherListView();

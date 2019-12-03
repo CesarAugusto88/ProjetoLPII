@@ -30,9 +30,6 @@
         {
             this.lblIdclientePedido = new System.Windows.Forms.Label();
             this.txbIdCpedido = new System.Windows.Forms.TextBox();
-            this.btnPedidoParcial = new System.Windows.Forms.Button();
-            this.listVclientesPedido = new System.Windows.Forms.ListView();
-            this.listVpizzasPedido = new System.Windows.Forms.ListView();
             this.txbNomepizzaPedido = new System.Windows.Forms.TextBox();
             this.lblNomepizzaPedido = new System.Windows.Forms.Label();
             this.txbValorpizzaPedido = new System.Windows.Forms.TextBox();
@@ -42,9 +39,22 @@
             this.btnEditarPedido = new System.Windows.Forms.Button();
             this.btnCadastrarPedido = new System.Windows.Forms.Button();
             this.listVpedidos = new System.Windows.Forms.ListView();
+            this.clIdClie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clPizza = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblClientes = new System.Windows.Forms.Label();
             this.lblPizzas = new System.Windows.Forms.Label();
             this.lblPedidosCadastrados = new System.Windows.Forms.Label();
+            this.btnDeletarPedido = new System.Windows.Forms.Button();
+            this.listVclientesPedido = new System.Windows.Forms.ListView();
+            this.listVpizzasPedido = new System.Windows.Forms.ListView();
+            this.clNomePizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clValorPizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clIdCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clNomeCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clCelPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clLograCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clCliBairroPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lblIdclientePedido
@@ -62,46 +72,15 @@
             this.txbIdCpedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbIdCpedido.Location = new System.Drawing.Point(232, 31);
             this.txbIdCpedido.Name = "txbIdCpedido";
-            this.txbIdCpedido.Size = new System.Drawing.Size(252, 29);
+            this.txbIdCpedido.Size = new System.Drawing.Size(339, 29);
             this.txbIdCpedido.TabIndex = 1;
-            // 
-            // btnPedidoParcial
-            // 
-            this.btnPedidoParcial.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPedidoParcial.Location = new System.Drawing.Point(531, 66);
-            this.btnPedidoParcial.Name = "btnPedidoParcial";
-            this.btnPedidoParcial.Size = new System.Drawing.Size(187, 44);
-            this.btnPedidoParcial.TabIndex = 2;
-            this.btnPedidoParcial.Text = "Pedido Parcial";
-            this.btnPedidoParcial.UseVisualStyleBackColor = true;
-            this.btnPedidoParcial.Click += new System.EventHandler(this.TxbPedidoParcial_Click);
-            // 
-            // listVclientesPedido
-            // 
-            this.listVclientesPedido.HideSelection = false;
-            this.listVclientesPedido.Location = new System.Drawing.Point(36, 253);
-            this.listVclientesPedido.Name = "listVclientesPedido";
-            this.listVclientesPedido.Size = new System.Drawing.Size(293, 162);
-            this.listVclientesPedido.TabIndex = 3;
-            this.listVclientesPedido.UseCompatibleStateImageBehavior = false;
-            this.listVclientesPedido.View = System.Windows.Forms.View.List;
-            // 
-            // listVpizzasPedido
-            // 
-            this.listVpizzasPedido.HideSelection = false;
-            this.listVpizzasPedido.Location = new System.Drawing.Point(349, 253);
-            this.listVpizzasPedido.Name = "listVpizzasPedido";
-            this.listVpizzasPedido.Size = new System.Drawing.Size(293, 162);
-            this.listVpizzasPedido.TabIndex = 4;
-            this.listVpizzasPedido.UseCompatibleStateImageBehavior = false;
-            this.listVpizzasPedido.View = System.Windows.Forms.View.List;
             // 
             // txbNomepizzaPedido
             // 
             this.txbNomepizzaPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNomepizzaPedido.Location = new System.Drawing.Point(232, 75);
             this.txbNomepizzaPedido.Name = "txbNomepizzaPedido";
-            this.txbNomepizzaPedido.Size = new System.Drawing.Size(252, 29);
+            this.txbNomepizzaPedido.Size = new System.Drawing.Size(339, 29);
             this.txbNomepizzaPedido.TabIndex = 6;
             // 
             // lblNomepizzaPedido
@@ -119,7 +98,7 @@
             this.txbValorpizzaPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbValorpizzaPedido.Location = new System.Drawing.Point(232, 119);
             this.txbValorpizzaPedido.Name = "txbValorpizzaPedido";
-            this.txbValorpizzaPedido.Size = new System.Drawing.Size(252, 29);
+            this.txbValorpizzaPedido.Size = new System.Drawing.Size(339, 29);
             this.txbValorpizzaPedido.TabIndex = 8;
             this.txbValorpizzaPedido.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
@@ -138,7 +117,7 @@
             this.txbValorentregaPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbValorentregaPedido.Location = new System.Drawing.Point(232, 164);
             this.txbValorentregaPedido.Name = "txbValorentregaPedido";
-            this.txbValorentregaPedido.Size = new System.Drawing.Size(252, 29);
+            this.txbValorentregaPedido.Size = new System.Drawing.Size(339, 29);
             this.txbValorentregaPedido.TabIndex = 10;
             // 
             // lblValorentregaPedido
@@ -154,7 +133,7 @@
             // btnEditarPedido
             // 
             this.btnEditarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarPedido.Location = new System.Drawing.Point(634, 116);
+            this.btnEditarPedido.Location = new System.Drawing.Point(685, 91);
             this.btnEditarPedido.Name = "btnEditarPedido";
             this.btnEditarPedido.Size = new System.Drawing.Size(187, 44);
             this.btnEditarPedido.TabIndex = 11;
@@ -164,7 +143,7 @@
             // btnCadastrarPedido
             // 
             this.btnCadastrarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarPedido.Location = new System.Drawing.Point(740, 166);
+            this.btnCadastrarPedido.Location = new System.Drawing.Point(596, 41);
             this.btnCadastrarPedido.Name = "btnCadastrarPedido";
             this.btnCadastrarPedido.Size = new System.Drawing.Size(209, 44);
             this.btnCadastrarPedido.TabIndex = 12;
@@ -174,19 +153,31 @@
             // 
             // listVpedidos
             // 
+            this.listVpedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clIdClie,
+            this.clPizza});
             this.listVpedidos.HideSelection = false;
-            this.listVpedidos.Location = new System.Drawing.Point(667, 253);
+            this.listVpedidos.Location = new System.Drawing.Point(685, 253);
             this.listVpedidos.Name = "listVpedidos";
-            this.listVpedidos.Size = new System.Drawing.Size(293, 162);
+            this.listVpedidos.Size = new System.Drawing.Size(259, 162);
             this.listVpedidos.TabIndex = 13;
             this.listVpedidos.UseCompatibleStateImageBehavior = false;
-            this.listVpedidos.View = System.Windows.Forms.View.List;
+            this.listVpedidos.View = System.Windows.Forms.View.Details;
+            // 
+            // clIdClie
+            // 
+            this.clIdClie.Text = "Id Cliente";
+            // 
+            // clPizza
+            // 
+            this.clPizza.Text = "Pizza";
+            this.clPizza.Width = 186;
             // 
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
             this.lblClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientes.Location = new System.Drawing.Point(125, 221);
+            this.lblClientes.Location = new System.Drawing.Point(167, 221);
             this.lblClientes.Name = "lblClientes";
             this.lblClientes.Size = new System.Drawing.Size(101, 29);
             this.lblClientes.TabIndex = 14;
@@ -196,7 +187,7 @@
             // 
             this.lblPizzas.AutoSize = true;
             this.lblPizzas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPizzas.Location = new System.Drawing.Point(444, 221);
+            this.lblPizzas.Location = new System.Drawing.Point(507, 221);
             this.lblPizzas.Name = "lblPizzas";
             this.lblPizzas.Size = new System.Drawing.Size(82, 29);
             this.lblPizzas.TabIndex = 15;
@@ -212,11 +203,92 @@
             this.lblPedidosCadastrados.TabIndex = 16;
             this.lblPedidosCadastrados.Text = "Pedidos Cadastrados";
             // 
+            // btnDeletarPedido
+            // 
+            this.btnDeletarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarPedido.Location = new System.Drawing.Point(758, 141);
+            this.btnDeletarPedido.Name = "btnDeletarPedido";
+            this.btnDeletarPedido.Size = new System.Drawing.Size(187, 44);
+            this.btnDeletarPedido.TabIndex = 17;
+            this.btnDeletarPedido.Text = "Deletar Pedido";
+            this.btnDeletarPedido.UseVisualStyleBackColor = true;
+            // 
+            // listVclientesPedido
+            // 
+            this.listVclientesPedido.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clIdCliPedido,
+            this.clNomeCliPedido,
+            this.clCelPedido,
+            this.clLograCliPedido,
+            this.clCliPedido,
+            this.clCliBairroPedido});
+            this.listVclientesPedido.HideSelection = false;
+            this.listVclientesPedido.Location = new System.Drawing.Point(39, 253);
+            this.listVclientesPedido.Name = "listVclientesPedido";
+            this.listVclientesPedido.Size = new System.Drawing.Size(374, 162);
+            this.listVclientesPedido.TabIndex = 18;
+            this.listVclientesPedido.UseCompatibleStateImageBehavior = false;
+            this.listVclientesPedido.View = System.Windows.Forms.View.Details;
+            // 
+            // listVpizzasPedido
+            // 
+            this.listVpizzasPedido.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clNomePizzaP,
+            this.clValorPizzaP});
+            this.listVpizzasPedido.HideSelection = false;
+            this.listVpizzasPedido.Location = new System.Drawing.Point(433, 253);
+            this.listVpizzasPedido.Name = "listVpizzasPedido";
+            this.listVpizzasPedido.Size = new System.Drawing.Size(233, 162);
+            this.listVpizzasPedido.TabIndex = 19;
+            this.listVpizzasPedido.UseCompatibleStateImageBehavior = false;
+            this.listVpizzasPedido.View = System.Windows.Forms.View.Details;
+            // 
+            // clNomePizzaP
+            // 
+            this.clNomePizzaP.Text = "Nome";
+            this.clNomePizzaP.Width = 169;
+            // 
+            // clValorPizzaP
+            // 
+            this.clValorPizzaP.Text = "Valor";
+            // 
+            // clIdCliPedido
+            // 
+            this.clIdCliPedido.Text = "Id Cliente";
+            this.clIdCliPedido.Width = 38;
+            // 
+            // clNomeCliPedido
+            // 
+            this.clNomeCliPedido.Text = "Nome";
+            this.clNomeCliPedido.Width = 73;
+            // 
+            // clCelPedido
+            // 
+            this.clCelPedido.Text = "Celular";
+            // 
+            // clLograCliPedido
+            // 
+            this.clLograCliPedido.Text = "Rua";
+            this.clLograCliPedido.Width = 73;
+            // 
+            // clCliPedido
+            // 
+            this.clCliPedido.Text = "Nº";
+            this.clCliPedido.Width = 28;
+            // 
+            // clCliBairroPedido
+            // 
+            this.clCliBairroPedido.Text = "Bairro";
+            this.clCliBairroPedido.Width = 97;
+            // 
             // FormFazerPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 450);
+            this.Controls.Add(this.listVpizzasPedido);
+            this.Controls.Add(this.listVclientesPedido);
+            this.Controls.Add(this.btnDeletarPedido);
             this.Controls.Add(this.lblPedidosCadastrados);
             this.Controls.Add(this.lblPizzas);
             this.Controls.Add(this.lblClientes);
@@ -229,9 +301,6 @@
             this.Controls.Add(this.lblValorpizzaPedido);
             this.Controls.Add(this.txbNomepizzaPedido);
             this.Controls.Add(this.lblNomepizzaPedido);
-            this.Controls.Add(this.listVpizzasPedido);
-            this.Controls.Add(this.listVclientesPedido);
-            this.Controls.Add(this.btnPedidoParcial);
             this.Controls.Add(this.txbIdCpedido);
             this.Controls.Add(this.lblIdclientePedido);
             this.Name = "FormFazerPedido";
@@ -247,9 +316,6 @@
 
         private System.Windows.Forms.Label lblIdclientePedido;
         private System.Windows.Forms.TextBox txbIdCpedido;
-        private System.Windows.Forms.Button btnPedidoParcial;
-        private System.Windows.Forms.ListView listVclientesPedido;
-        private System.Windows.Forms.ListView listVpizzasPedido;
         private System.Windows.Forms.TextBox txbNomepizzaPedido;
         private System.Windows.Forms.Label lblNomepizzaPedido;
         private System.Windows.Forms.TextBox txbValorpizzaPedido;
@@ -262,5 +328,18 @@
         private System.Windows.Forms.Label lblClientes;
         private System.Windows.Forms.Label lblPizzas;
         private System.Windows.Forms.Label lblPedidosCadastrados;
+        private System.Windows.Forms.Button btnDeletarPedido;
+        private System.Windows.Forms.ColumnHeader clIdClie;
+        private System.Windows.Forms.ColumnHeader clPizza;
+        private System.Windows.Forms.ListView listVclientesPedido;
+        private System.Windows.Forms.ListView listVpizzasPedido;
+        private System.Windows.Forms.ColumnHeader clIdCliPedido;
+        private System.Windows.Forms.ColumnHeader clNomeCliPedido;
+        private System.Windows.Forms.ColumnHeader clCelPedido;
+        private System.Windows.Forms.ColumnHeader clLograCliPedido;
+        private System.Windows.Forms.ColumnHeader clCliPedido;
+        private System.Windows.Forms.ColumnHeader clCliBairroPedido;
+        private System.Windows.Forms.ColumnHeader clNomePizzaP;
+        private System.Windows.Forms.ColumnHeader clValorPizzaP;
     }
 }

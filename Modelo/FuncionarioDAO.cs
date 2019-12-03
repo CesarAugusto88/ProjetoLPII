@@ -95,15 +95,12 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return Mensagem;
         }
 
-        internal SqlDataReader RetornarFucionarios()
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public SqlDataReader RetornarFubcionarios()
+        public SqlDataReader RetornarFuncionarios()
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select * from Funcionario";
+            cmd.CommandText = "select Nome, Celular, Email, Logradouro, Numero, Bairro from Funcionario";
             //Parametros que serão substituídos no CommandText.
 
             try
