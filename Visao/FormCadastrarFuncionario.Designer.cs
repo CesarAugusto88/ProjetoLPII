@@ -56,14 +56,14 @@
             this.txbConfirmaSenhaF = new System.Windows.Forms.TextBox();
             this.btnCadastrarF = new System.Windows.Forms.Button();
             this.listVfuncionarios = new System.Windows.Forms.ListView();
-            this.btnEditarF = new System.Windows.Forms.Button();
-            this.btnDeletarF = new System.Windows.Forms.Button();
             this.clNomeF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clCelF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clEmailF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clLograF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clNumeroF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clBairroF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnEditarF = new System.Windows.Forms.Button();
+            this.btnDeletarF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNomeF
@@ -356,26 +356,6 @@
             this.listVfuncionarios.UseCompatibleStateImageBehavior = false;
             this.listVfuncionarios.View = System.Windows.Forms.View.Details;
             // 
-            // btnEditarF
-            // 
-            this.btnEditarF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarF.Location = new System.Drawing.Point(658, 359);
-            this.btnEditarF.Name = "btnEditarF";
-            this.btnEditarF.Size = new System.Drawing.Size(282, 38);
-            this.btnEditarF.TabIndex = 28;
-            this.btnEditarF.Text = "Editar Funcionário";
-            this.btnEditarF.UseVisualStyleBackColor = true;
-            // 
-            // btnDeletarF
-            // 
-            this.btnDeletarF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletarF.Location = new System.Drawing.Point(658, 402);
-            this.btnDeletarF.Name = "btnDeletarF";
-            this.btnDeletarF.Size = new System.Drawing.Size(282, 38);
-            this.btnDeletarF.TabIndex = 29;
-            this.btnDeletarF.Text = "Deletar Funcionário";
-            this.btnDeletarF.UseVisualStyleBackColor = true;
-            // 
             // clNomeF
             // 
             this.clNomeF.Text = "Nome";
@@ -405,6 +385,26 @@
             // 
             this.clBairroF.Text = "Bairro";
             this.clBairroF.Width = 81;
+            // 
+            // btnEditarF
+            // 
+            this.btnEditarF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarF.Location = new System.Drawing.Point(658, 359);
+            this.btnEditarF.Name = "btnEditarF";
+            this.btnEditarF.Size = new System.Drawing.Size(282, 38);
+            this.btnEditarF.TabIndex = 28;
+            this.btnEditarF.Text = "Editar Funcionário";
+            this.btnEditarF.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletarF
+            // 
+            this.btnDeletarF.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarF.Location = new System.Drawing.Point(658, 402);
+            this.btnDeletarF.Name = "btnDeletarF";
+            this.btnDeletarF.Size = new System.Drawing.Size(282, 38);
+            this.btnDeletarF.TabIndex = 29;
+            this.btnDeletarF.Text = "Deletar Funcionário";
+            this.btnDeletarF.UseVisualStyleBackColor = true;
             // 
             // FormCadastrarFuncionario
             // 
@@ -442,6 +442,7 @@
             this.Controls.Add(this.lblCpfF);
             this.Controls.Add(this.lblNomeF);
             this.Name = "FormCadastrarFuncionario";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarFuncionario";
             this.Load += new System.EventHandler(this.FormCadastrarFuncionario_Load);

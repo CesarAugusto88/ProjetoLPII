@@ -15,3 +15,4 @@ C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzar
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarFuncionario.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormCadastrarPizza.resources
 C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormFazerPedido.resources
+C:\Users\Cesar\source\repos\Projeto_Pizzaria_das_Couves\obj\Debug\Projeto_Pizzaria_das_Couves.Visao.FormPedido.resources

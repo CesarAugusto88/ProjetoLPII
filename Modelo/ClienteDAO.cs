@@ -33,8 +33,6 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             cmd.Parameters.AddWithValue("complemento", cliente.Complemento);
             cmd.Parameters.AddWithValue("bairro", cliente.Bairro);
             
-            
-
             try
             {
                 cmd.Connection = con.Conectar();
@@ -81,6 +79,62 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             return Mensagem;
         }
 
+        // REMOVER CLIENTE ???
+        public string Remover(Cliente cliente)
+        {
+            Mensagem = String.Empty;
+            //Comando SQL
+            cmd.CommandText = "delete from Cliente where |Id = @id";
+            cmd.Parameters.AddWithValue("id", cliente.Id);
+            
+
+            try
+            {
+                cmd.Connection = con.Conectar();
+                cmd.ExecuteNonQuery();
+                con.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Mensagem = ex.Message;
+            }
+            //Seleciona o maior Id, ou seja, o último adicionado.
+            cmd.CommandText = "SELECT MAX(Id) FROM Cliente";
+            try
+            {
+                cmd.Connection = con.Conectar();
+                dr = cmd.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                Mensagem = ex.Message;
+            }
+
+            if (Mensagem == String.Empty)
+            {
+                //dr.Read();
+
+                dr.Close();
+                //conectar com banco
+                try
+                {
+                    //Receber o endereço de onde vou me conectar.
+                    cmd.Connection = con.Conectar();
+                    //Executar comando.
+                    cmd.ExecuteNonQuery();
+                    //Exibe mensagem;
+                    Mensagem = "Cliente removido com sucesso!!!";
+                }
+                catch (SqlException ex)
+                {
+                    //Captura a mensagem de erro gerada.
+                    Mensagem = ex.Message;
+                }
+            }
+            return Mensagem;
+        }
+
+        // ESSA FUNÇÃO É CARREGADA NO LOAD DO FORM E VAI PARA A LISTVIEM... 
         public SqlDataReader RetornarClientes()
         {
             //Comandos SQL para verificar se existe o usuário no banco.

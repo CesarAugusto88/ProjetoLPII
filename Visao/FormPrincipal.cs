@@ -130,7 +130,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void BtnFazerPedido_Click(object sender, EventArgs e)
         {
-            FormFazerPedido FP = new FormFazerPedido();
+            FormPedido FP = new FormPedido();
             FP.ShowDialog();
         }
 
@@ -138,6 +138,11 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         {
             FormCadastrarPizza CadP = new FormCadastrarPizza();
             CadP.ShowDialog();
+        }
+
+        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

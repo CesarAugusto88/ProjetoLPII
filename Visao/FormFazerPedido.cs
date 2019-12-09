@@ -23,12 +23,36 @@ namespace Projeto_Pizzaria_das_Couves.Visao
 
         private void FormFazerPedido_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'projeto_PizzariaDataSet.FazerPedido'. Você pode movê-la ou removê-la conforme necessário.
+            this.fazerPedidoTableAdapter.Fill(this.projeto_PizzariaDataSet.FazerPedido);
+
+            // TODO: esta linha de código carrega dados na tabela 'projeto_PizzariaDataSet.FazerPedido'. Você pode movê-la ou removê-la conforme necessário.
             PreencherListViewCli();
             PreencherListViewPizza();
             PreencherListView();
+            //PreencherListB();
             
         }
+       /* public void PreencherListB()
+        {
+            //listBpedidos.Items.Clear();
+            
+            SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
+            ControleFazerPedido pb = new ControleFazerPedido();
+            // MODIFICAR PARA APARECER NO LISTBOX OS IDS
+            dr = pb.RetornarFazerPedidos(txbIdCpedido.Text); //Chama o método responsável pela realização da consulta. 
+            // aceita lista
+            //listBpedidos.DataSource = ;
+            if (dr != null) //Verifico 
+            {
+                while (dr.Read())
+                {
+                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// id 
 
+                    listBpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
+                }
+            }
+        } */
         public void PreencherListViewCli()
         {
             listVclientesPedido.Items.Clear();
@@ -77,7 +101,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             }
         }
 
-
+        // preencher listview do pedido... la no else nao é para isso.
         public void PreencherListView()
         {
             listVpedidos.Items.Clear();
@@ -85,22 +109,20 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
             ControleFazerPedido pp = new ControleFazerPedido();
             dr = pp.RetornarFazerPedidos(txbNomepizzaPedido.Text); //Chama o método responsável pela realização da consulta. 
-                                                                   
-
 
             if (dr != null) //Verifico 
             {
                 while (dr.Read())
                 {
-                    // não aparece os valores. Ver o tabela no banco de dados
-                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// FkIdCliente
-                    lv.SubItems.Add(dr.GetString(1));//Nome Pizza.
-                   // lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valor Pizza não aparece 
-                   // lv.SubItems.Add(dr.GetDecimal(3).ToString());//Valor Entrega não aparece
+                    ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// id pedidos
+                    lv.SubItems.Add(dr.GetString(1));//Nome Pizza
+                    lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valores pizza+entrega 
                     listVpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
                 }
             }
         }
+
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -142,6 +164,7 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                 string mensagem = fpedido.AdicionarFazerPedido(pedido);
 
                 MessageBox.Show(mensagem);
+
                 void PreencherListView()
                 {
                     listVpedidos.Items.Clear();
@@ -149,17 +172,16 @@ namespace Projeto_Pizzaria_das_Couves.Visao
                     SqlDataReader dr; //Objeto para armazenar o retorno do banco. 
                     ControleFazerPedido pp = new ControleFazerPedido();
                     dr = pp.RetornarFazerPedidos(txbNomepizzaPedido.Text); //Chama o método responsável pela realização da consulta. 
-                                                               // tres lugares para alterar RetornarPizzas
-
 
                     if (dr != null) //Verifico 
                     {
                         while (dr.Read())
                         {
-                            ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// FkIdCliente
+                            ListViewItem lv = new ListViewItem(dr.GetInt32(0).ToString());// Id pedido
+                            
                             lv.SubItems.Add(dr.GetString(1));//Nome Pizza
-                           //  lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valor Pizza 
-                           // lv.SubItems.Add(dr.GetDecimal(3).ToString());//Valor Entrega
+                            lv.SubItems.Add(dr.GetDecimal(2).ToString());//Valores pizza+entrega  
+                           
 
                             listVpedidos.Items.Add(lv); //Adiciona a linha criada à listview.
                         }
@@ -175,7 +197,31 @@ namespace Projeto_Pizzaria_das_Couves.Visao
             //FormBemVindo BvC = new FormBemVindo();
             //BvC.ShowDialog();
             PreencherListView();
-        }        
-        
+        }
+
+        private void BtnDeletarPedido_Click(object sender, EventArgs e)
+        {                
+            //fazer delete com ID no listbox
+            if (listBpedidos.SelectedIndex < 0)
+            {
+                MessageBox.Show("Selecione um Campo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (MessageBox.Show("Deseja Excluir?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                // ERRO AO CONVERTER DE VARCHAR, Não está deletendo
+                string item = listBpedidos.SelectedItem.ToString();// não usado
+
+                //int it = Convert.ToInt32(listBpedidos.SelectedValue);// erro ao converter
+                FazerPedido pedido = new FazerPedido();// it aqui, mas ta com erro
+                ControleFazerPedido dp = new ControleFazerPedido();
+                string mensagem = dp.RemoverFazerPedido(pedido);
+
+                MessageBox.Show(mensagem);
+
+            } 
+
+
+
+        }
     }
 }

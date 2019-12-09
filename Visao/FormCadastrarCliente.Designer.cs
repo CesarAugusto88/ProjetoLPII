@@ -50,14 +50,14 @@
             this.txbNumC = new System.Windows.Forms.TextBox();
             this.txbLograC = new System.Windows.Forms.TextBox();
             this.listVclientes = new System.Windows.Forms.ListView();
-            this.btnEditarC = new System.Windows.Forms.Button();
-            this.btnDeletarCliente = new System.Windows.Forms.Button();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.celular = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logradouro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.numero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bairro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnEditarC = new System.Windows.Forms.Button();
+            this.btnDeletarCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNomeC
@@ -175,6 +175,7 @@
             // 
             // txbNomeC
             // 
+            this.txbNomeC.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txbNomeC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbNomeC.Location = new System.Drawing.Point(152, 58);
             this.txbNomeC.Name = "txbNomeC";
@@ -257,6 +258,7 @@
             // 
             // listVclientes
             // 
+            this.listVclientes.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.listVclientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
             this.nome,
@@ -264,6 +266,8 @@
             this.logradouro,
             this.numero,
             this.bairro});
+            this.listVclientes.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVclientes.GridLines = true;
             this.listVclientes.HideSelection = false;
             this.listVclientes.Location = new System.Drawing.Point(117, 410);
             this.listVclientes.Name = "listVclientes";
@@ -272,26 +276,6 @@
             this.listVclientes.UseCompatibleStateImageBehavior = false;
             this.listVclientes.View = System.Windows.Forms.View.Details;
             this.listVclientes.SelectedIndexChanged += new System.EventHandler(this.ListVclientes_SelectedIndexChanged);
-            // 
-            // btnEditarC
-            // 
-            this.btnEditarC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarC.Location = new System.Drawing.Point(597, 308);
-            this.btnEditarC.Name = "btnEditarC";
-            this.btnEditarC.Size = new System.Drawing.Size(214, 45);
-            this.btnEditarC.TabIndex = 23;
-            this.btnEditarC.Text = "Editar Cliente";
-            this.btnEditarC.UseVisualStyleBackColor = true;
-            // 
-            // btnDeletarCliente
-            // 
-            this.btnDeletarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletarCliente.Location = new System.Drawing.Point(597, 359);
-            this.btnDeletarCliente.Name = "btnDeletarCliente";
-            this.btnDeletarCliente.Size = new System.Drawing.Size(214, 45);
-            this.btnDeletarCliente.TabIndex = 24;
-            this.btnDeletarCliente.Text = "Deletar Cliente";
-            this.btnDeletarCliente.UseVisualStyleBackColor = true;
             // 
             // id
             // 
@@ -323,6 +307,26 @@
             this.bairro.Text = "Bairro";
             this.bairro.Width = 184;
             // 
+            // btnEditarC
+            // 
+            this.btnEditarC.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarC.Location = new System.Drawing.Point(597, 308);
+            this.btnEditarC.Name = "btnEditarC";
+            this.btnEditarC.Size = new System.Drawing.Size(214, 45);
+            this.btnEditarC.TabIndex = 23;
+            this.btnEditarC.Text = "Editar Cliente";
+            this.btnEditarC.UseVisualStyleBackColor = true;
+            // 
+            // btnDeletarCliente
+            // 
+            this.btnDeletarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarCliente.Location = new System.Drawing.Point(597, 359);
+            this.btnDeletarCliente.Name = "btnDeletarCliente";
+            this.btnDeletarCliente.Size = new System.Drawing.Size(214, 45);
+            this.btnDeletarCliente.TabIndex = 24;
+            this.btnDeletarCliente.Text = "Deletar Cliente";
+            this.btnDeletarCliente.UseVisualStyleBackColor = true;
+            // 
             // FormCadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,9 +357,11 @@
             this.Controls.Add(this.lblCpfC);
             this.Controls.Add(this.lblNomeC);
             this.Name = "FormCadastrarCliente";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarCliente";
             this.Load += new System.EventHandler(this.FormCadastrarCliente_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNomeC_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +380,6 @@
         private System.Windows.Forms.Label lblBairroC;
         private System.Windows.Forms.Label lblEmailC;
         private System.Windows.Forms.Button btnCadastrarCliente;
-        private System.Windows.Forms.TextBox txbNomeC;
         private System.Windows.Forms.TextBox txbCpfC;
         private System.Windows.Forms.TextBox txbRgC;
         private System.Windows.Forms.TextBox txbCelC;
@@ -393,5 +398,6 @@
         private System.Windows.Forms.ColumnHeader logradouro;
         private System.Windows.Forms.ColumnHeader numero;
         private System.Windows.Forms.ColumnHeader bairro;
+        private System.Windows.Forms.TextBox txbNomeC;
     }
 }

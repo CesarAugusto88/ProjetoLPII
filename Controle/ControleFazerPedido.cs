@@ -15,8 +15,14 @@ namespace Projeto_Pizzaria_das_Couves.Controle
         {
             FazerPedidoDAO pp = new FazerPedidoDAO();
             string mensagem = pp.Adicionar(pedido); // Adicionar -> está em DAO
+            return mensagem;            
+        }
+
+        public string RemoverFazerPedido(FazerPedido pedido)
+        {
+            FazerPedidoDAO pp = new FazerPedidoDAO();
+            string mensagem = pp.Remover(pedido); // -> está em DAO
             return mensagem;
-            
         }
 
         //Método intermediário utilizado para retornar informações dos clientes que estão salvos no banco.
@@ -26,6 +32,7 @@ namespace Projeto_Pizzaria_das_Couves.Controle
             return pe.RetornarFazerPedidos(Nome);
         }
 
+       
         public SqlDataReader RetornarFazerPedido(int indice)
         {
             FazerPedidoDAO ped = new FazerPedidoDAO();

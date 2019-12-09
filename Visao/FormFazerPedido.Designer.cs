@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblIdclientePedido = new System.Windows.Forms.Label();
             this.txbIdCpedido = new System.Windows.Forms.TextBox();
             this.txbNomepizzaPedido = new System.Windows.Forms.TextBox();
@@ -39,22 +40,31 @@
             this.btnEditarPedido = new System.Windows.Forms.Button();
             this.btnCadastrarPedido = new System.Windows.Forms.Button();
             this.listVpedidos = new System.Windows.Forms.ListView();
-            this.clIdClie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clPizza = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clvalorpizzaentrega = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblClientes = new System.Windows.Forms.Label();
             this.lblPizzas = new System.Windows.Forms.Label();
             this.lblPedidosCadastrados = new System.Windows.Forms.Label();
             this.btnDeletarPedido = new System.Windows.Forms.Button();
             this.listVclientesPedido = new System.Windows.Forms.ListView();
-            this.listVpizzasPedido = new System.Windows.Forms.ListView();
-            this.clNomePizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.clValorPizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clIdCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clNomeCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clCelPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clLograCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clCliPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clCliBairroPedido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listVpizzasPedido = new System.Windows.Forms.ListView();
+            this.clNomePizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clValorPizzaP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listBpedidos = new System.Windows.Forms.ListBox();
+            this.fazerPedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projeto_PizzariaDataSet = new Projeto_Pizzaria_das_Couves.Projeto_PizzariaDataSet();
+            this.fazerPedidoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.fazerPedidoTableAdapter = new Projeto_Pizzaria_das_Couves.Projeto_PizzariaDataSetTableAdapters.FazerPedidoTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.fazerPedidoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projeto_PizzariaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fazerPedidoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblIdclientePedido
@@ -154,24 +164,31 @@
             // listVpedidos
             // 
             this.listVpedidos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clIdClie,
-            this.clPizza});
+            this.id,
+            this.clPizza,
+            this.clvalorpizzaentrega});
             this.listVpedidos.HideSelection = false;
-            this.listVpedidos.Location = new System.Drawing.Point(685, 253);
+            this.listVpedidos.Location = new System.Drawing.Point(714, 255);
             this.listVpedidos.Name = "listVpedidos";
-            this.listVpedidos.Size = new System.Drawing.Size(259, 162);
+            this.listVpedidos.Size = new System.Drawing.Size(244, 173);
             this.listVpedidos.TabIndex = 13;
             this.listVpedidos.UseCompatibleStateImageBehavior = false;
             this.listVpedidos.View = System.Windows.Forms.View.Details;
             // 
-            // clIdClie
+            // id
             // 
-            this.clIdClie.Text = "Id Cliente";
+            this.id.Text = "ID";
+            this.id.Width = 24;
             // 
             // clPizza
             // 
             this.clPizza.Text = "Pizza";
-            this.clPizza.Width = 186;
+            this.clPizza.Width = 75;
+            // 
+            // clvalorpizzaentrega
+            // 
+            this.clvalorpizzaentrega.Text = "Valor total";
+            this.clvalorpizzaentrega.Width = 65;
             // 
             // lblClientes
             // 
@@ -197,7 +214,7 @@
             // 
             this.lblPedidosCadastrados.AutoSize = true;
             this.lblPedidosCadastrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPedidosCadastrados.Location = new System.Drawing.Point(694, 221);
+            this.lblPedidosCadastrados.Location = new System.Drawing.Point(713, 223);
             this.lblPedidosCadastrados.Name = "lblPedidosCadastrados";
             this.lblPedidosCadastrados.Size = new System.Drawing.Size(245, 29);
             this.lblPedidosCadastrados.TabIndex = 16;
@@ -212,6 +229,7 @@
             this.btnDeletarPedido.TabIndex = 17;
             this.btnDeletarPedido.Text = "Deletar Pedido";
             this.btnDeletarPedido.UseVisualStyleBackColor = true;
+            this.btnDeletarPedido.Click += new System.EventHandler(this.BtnDeletarPedido_Click);
             // 
             // listVclientesPedido
             // 
@@ -223,12 +241,42 @@
             this.clCliPedido,
             this.clCliBairroPedido});
             this.listVclientesPedido.HideSelection = false;
-            this.listVclientesPedido.Location = new System.Drawing.Point(39, 253);
+            this.listVclientesPedido.Location = new System.Drawing.Point(39, 255);
             this.listVclientesPedido.Name = "listVclientesPedido";
-            this.listVclientesPedido.Size = new System.Drawing.Size(374, 162);
+            this.listVclientesPedido.Size = new System.Drawing.Size(370, 173);
             this.listVclientesPedido.TabIndex = 18;
             this.listVclientesPedido.UseCompatibleStateImageBehavior = false;
             this.listVclientesPedido.View = System.Windows.Forms.View.Details;
+            // 
+            // clIdCliPedido
+            // 
+            this.clIdCliPedido.Text = "Id Cliente";
+            this.clIdCliPedido.Width = 57;
+            // 
+            // clNomeCliPedido
+            // 
+            this.clNomeCliPedido.Text = "Nome";
+            this.clNomeCliPedido.Width = 80;
+            // 
+            // clCelPedido
+            // 
+            this.clCelPedido.Text = "Celular";
+            this.clCelPedido.Width = 45;
+            // 
+            // clLograCliPedido
+            // 
+            this.clLograCliPedido.Text = "Rua";
+            this.clLograCliPedido.Width = 61;
+            // 
+            // clCliPedido
+            // 
+            this.clCliPedido.Text = "Nº";
+            this.clCliPedido.Width = 26;
+            // 
+            // clCliBairroPedido
+            // 
+            this.clCliBairroPedido.Text = "Bairro";
+            this.clCliBairroPedido.Width = 97;
             // 
             // listVpizzasPedido
             // 
@@ -236,9 +284,9 @@
             this.clNomePizzaP,
             this.clValorPizzaP});
             this.listVpizzasPedido.HideSelection = false;
-            this.listVpizzasPedido.Location = new System.Drawing.Point(433, 253);
+            this.listVpizzasPedido.Location = new System.Drawing.Point(441, 255);
             this.listVpizzasPedido.Name = "listVpizzasPedido";
-            this.listVpizzasPedido.Size = new System.Drawing.Size(233, 162);
+            this.listVpizzasPedido.Size = new System.Drawing.Size(207, 173);
             this.listVpizzasPedido.TabIndex = 19;
             this.listVpizzasPedido.UseCompatibleStateImageBehavior = false;
             this.listVpizzasPedido.View = System.Windows.Forms.View.Details;
@@ -246,46 +294,45 @@
             // clNomePizzaP
             // 
             this.clNomePizzaP.Text = "Nome";
-            this.clNomePizzaP.Width = 169;
+            this.clNomePizzaP.Width = 128;
             // 
             // clValorPizzaP
             // 
             this.clValorPizzaP.Text = "Valor";
             // 
-            // clIdCliPedido
+            // listBpedidos
             // 
-            this.clIdCliPedido.Text = "Id Cliente";
-            this.clIdCliPedido.Width = 38;
+            this.listBpedidos.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fazerPedidoBindingSource, "Id", true));
+            this.listBpedidos.DataSource = this.fazerPedidoBindingSource1;
+            this.listBpedidos.DisplayMember = "Id";
+            this.listBpedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBpedidos.FormattingEnabled = true;
+            this.listBpedidos.Location = new System.Drawing.Point(685, 281);
+            this.listBpedidos.Name = "listBpedidos";
+            this.listBpedidos.Size = new System.Drawing.Size(31, 147);
+            this.listBpedidos.TabIndex = 20;
+            this.listBpedidos.ValueMember = "Id";
             // 
-            // clNomeCliPedido
+            // projeto_PizzariaDataSet
             // 
-            this.clNomeCliPedido.Text = "Nome";
-            this.clNomeCliPedido.Width = 73;
+            this.projeto_PizzariaDataSet.DataSetName = "Projeto_PizzariaDataSet";
+            this.projeto_PizzariaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // clCelPedido
+            // fazerPedidoBindingSource1
             // 
-            this.clCelPedido.Text = "Celular";
+            this.fazerPedidoBindingSource1.DataMember = "FazerPedido";
+            this.fazerPedidoBindingSource1.DataSource = this.projeto_PizzariaDataSet;
             // 
-            // clLograCliPedido
+            // fazerPedidoTableAdapter
             // 
-            this.clLograCliPedido.Text = "Rua";
-            this.clLograCliPedido.Width = 73;
-            // 
-            // clCliPedido
-            // 
-            this.clCliPedido.Text = "Nº";
-            this.clCliPedido.Width = 28;
-            // 
-            // clCliBairroPedido
-            // 
-            this.clCliBairroPedido.Text = "Bairro";
-            this.clCliBairroPedido.Width = 97;
+            this.fazerPedidoTableAdapter.ClearBeforeFill = true;
             // 
             // FormFazerPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 450);
+            this.Controls.Add(this.listBpedidos);
             this.Controls.Add(this.listVpizzasPedido);
             this.Controls.Add(this.listVclientesPedido);
             this.Controls.Add(this.btnDeletarPedido);
@@ -304,9 +351,13 @@
             this.Controls.Add(this.txbIdCpedido);
             this.Controls.Add(this.lblIdclientePedido);
             this.Name = "FormFazerPedido";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFazerPedido";
             this.Load += new System.EventHandler(this.FormFazerPedido_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fazerPedidoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projeto_PizzariaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fazerPedidoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +380,6 @@
         private System.Windows.Forms.Label lblPizzas;
         private System.Windows.Forms.Label lblPedidosCadastrados;
         private System.Windows.Forms.Button btnDeletarPedido;
-        private System.Windows.Forms.ColumnHeader clIdClie;
         private System.Windows.Forms.ColumnHeader clPizza;
         private System.Windows.Forms.ListView listVclientesPedido;
         private System.Windows.Forms.ListView listVpizzasPedido;
@@ -341,5 +391,12 @@
         private System.Windows.Forms.ColumnHeader clCliBairroPedido;
         private System.Windows.Forms.ColumnHeader clNomePizzaP;
         private System.Windows.Forms.ColumnHeader clValorPizzaP;
+        private System.Windows.Forms.ColumnHeader clvalorpizzaentrega;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ListBox listBpedidos;
+        private System.Windows.Forms.BindingSource fazerPedidoBindingSource;
+        private Projeto_PizzariaDataSet projeto_PizzariaDataSet;
+        private System.Windows.Forms.BindingSource fazerPedidoBindingSource1;
+        private Projeto_PizzariaDataSetTableAdapters.FazerPedidoTableAdapter fazerPedidoTableAdapter;
     }
 }

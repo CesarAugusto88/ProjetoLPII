@@ -25,9 +25,9 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
                        
         }
 
-        public FazerPedido(int fkIdcli)
+        public FazerPedido(int idpedido)
         {
-            this.FkIdCliente = fkIdcli;
+            this.Id = idpedido;
         }
 
         public FazerPedido()

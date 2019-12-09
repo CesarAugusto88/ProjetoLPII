@@ -149,5 +149,10 @@ namespace Projeto_Pizzaria_das_Couves.Visao
         {
 
         }
+
+        private void TxbNomeC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

@@ -19,11 +19,11 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         {
             Mensagem = String.Empty;
             //Comando SQL. TERMINAR O INSET INTO APOS FAZER TAB NO BANCO...
-            cmd.CommandText = "insert into FazerPedido values (@FkIdCliente, @NomePizza, @ValorPizza, @ValorEntrega)";
-            cmd.Parameters.AddWithValue("FkIdCliente", pedido.FkIdCliente);
-            cmd.Parameters.AddWithValue("NomePizza", pedido.NomePizza);
-            cmd.Parameters.AddWithValue("ValorPizza", pedido.ValorPizza);
-            cmd.Parameters.AddWithValue("ValorEntrega", pedido.ValorEntrega);
+            cmd.CommandText = "insert into FazerPedido values (@idcli, @nomep, @valorp, @valoren)";
+            cmd.Parameters.AddWithValue("idcli", pedido.FkIdCliente);
+            cmd.Parameters.AddWithValue("nomep", pedido.NomePizza);
+            cmd.Parameters.AddWithValue("valorp", pedido.ValorPizza);
+            cmd.Parameters.AddWithValue("valoren", pedido.ValorEntrega);
 
 
 
@@ -55,12 +55,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
                 //dr.Read(); 
                 /*
                 cmd.CommandText = "insert into Cliente values (@nome, @cpf, @rg, @celular, @genero, @email, @endereco)";
-                cmd.Parameters.AddWithValue("nome", cliente.Nome);
-                cmd.Parameters.AddWithValue("cpf", cliente.CPF);
-                cmd.Parameters.AddWithValue("rg", cliente.RG);
-                cmd.Parameters.AddWithValue("celular", cliente.Celular);
-                cmd.Parameters.AddWithValue("genero", cliente.Genero);
-                cmd.Parameters.AddWithValue("email", cliente.Email);
+                
                 
                 while (dr.Read()) // tira essa função???
                 {
@@ -77,7 +72,64 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
                     //Executar comando.
                     cmd.ExecuteNonQuery();
                     //Exibe mensagem;
-                    Mensagem = "Pedido cadastrada com sucesso!!!";
+                    Mensagem = "Pedido cadastrado com sucesso!!!";
+                }
+                catch (SqlException ex)
+                {
+                    //Captura a mensagem de erro gerada.
+                    Mensagem = ex.Message;
+                }
+            }
+            return Mensagem;
+        }
+
+
+        // verificar COMANDO delete. No listBox deverá ter como selecionar o Id, que esta no form.cs
+        // de toString para toInt32 e vem para deletar
+        public string Remover(FazerPedido pedido)
+        {
+            Mensagem = String.Empty;
+            //Comando SQL. Como deletar com o que vem no parâmetro pedido???
+            // Usar uma procedure "EXEC deletarPedido id" ?? ou "delete from FazerPedido where Id = @id"
+            // TENHO QUE SELECIONAR O CORRETO NO LISTBOX QUE ESTA APARECENDO
+            cmd.CommandText = "delete from FazerPedido where Id = @id";//ERRO
+            cmd.Parameters.AddWithValue("id", pedido.Id);
+
+            try
+            {
+                cmd.Connection = con.Conectar();
+                cmd.ExecuteNonQuery();// executa o comando
+                con.Desconectar();
+            }
+            catch (SqlException ex)
+            {
+                Mensagem = ex.Message;
+            }
+            //Seleciona o maior Id 
+            cmd.CommandText = "SELECT MAX(Id) FROM FazerPedido";
+            try
+            {
+                cmd.Connection = con.Conectar();
+                dr = cmd.ExecuteReader();
+            }
+            catch (SqlException ex)
+            {
+                Mensagem = ex.Message;
+            }
+
+            if (Mensagem == String.Empty)
+            {
+                
+                dr.Close();
+                //conectar com banco
+                try
+                {
+                    //Receber de onde vou me conectar.
+                    cmd.Connection = con.Conectar();
+                    //Executar comando.
+                    cmd.ExecuteNonQuery();
+                    //Exibe mensagem;
+                    Mensagem = "Pedido removido com sucesso!!!";
                 }
                 catch (SqlException ex)
                 {
@@ -91,7 +143,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
         public SqlDataReader RetornarFazerPedidos(string Nome)
         {
             //Comandos SQL para verificar se existe o usuário no banco.
-            cmd.CommandText = "select FkIdCliente, NomePizza from FazerPedido";
+            cmd.CommandText = "select Id, NomePizza, (ValorPizza + ValorEntrega) from FazerPedido";
             //Parametros que serão substituídos no CommandText.
 
             try
@@ -112,6 +164,7 @@ namespace Projeto_Pizzaria_das_Couves.Modelo
             con.Desconectar();
             return null;
         }
+
 
         public SqlDataReader RetornarFazerPedido(int indice)
         {

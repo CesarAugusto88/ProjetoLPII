@@ -233,6 +233,7 @@
             this.Controls.Add(this.lblIng1);
             this.Controls.Add(this.btnCadPizza);
             this.Name = "FormCadastrarPizza";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadastrarPizza";
             this.Load += new System.EventHandler(this.FormCadastrarPizza_Load);
